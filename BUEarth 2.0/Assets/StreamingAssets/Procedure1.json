@@ -1,0 +1,42 @@
+{"data" : [
+  {
+    "instruction": "Make a cross with two popsicle sticks.",
+    "tip": "Don't chew on the popsicle sticks.",
+    "drawing": "Steps/Step.1"
+  },
+  {
+    "instruction": "Stack five more popscicles on top of the cross.",
+    "tip": "false",
+    "drawing": "Steps/Step.2"
+  },
+  {
+    "instruction": "Add a rubberband in the two specified locations.",
+    "tip": "Continually band until the rubberband is tight.",
+    "drawing": "Steps/Step.3"
+  },
+  {
+    "instruction": "Add another stick ontop of the cross.",
+    "tip": "false",
+    "drawing": "Steps/Step.4"
+  },
+  {
+    "instruction": "Add two rubberbands in the shape of an X.",
+    "tip": "Continually band until the rubberband is tight.",
+    "drawing": "Steps/Step.5"
+  },
+  {
+    "instruction": "Rubberband the back of the sticks.",
+    "tip": "Continually band until the rubberband is tight.",
+    "drawing": "Steps/Step.6"
+  },
+  {
+    "instruction": "Tape bottlecap a half of an inch away from the end of the stick.",
+    "tip": "Make sure the tape is secure before moving onto the next step.",
+    "drawing": "Steps/Step.7"
+  },
+  {
+    "instruction": "You are done! Congratulations! Fire Away!",
+    "tip": "false",
+    "drawing": "Steps/Step.8"
+  }
+]}
