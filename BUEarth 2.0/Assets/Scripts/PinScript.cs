@@ -11,6 +11,8 @@ public class PinScript : MonoBehaviour {
         var gazeDirection = Camera.main.transform.forward;
 
         RaycastHit hitInfo;
+        Debug.Log("Raycast returned: " + Physics.Raycast(headPosition, gazeDirection, out hitInfo,
+            30.0f, SpatialMapping.PhysicsRaycastMask));
         if (Physics.Raycast(headPosition, gazeDirection, out hitInfo,
             30.0f, SpatialMapping.PhysicsRaycastMask))
         {
