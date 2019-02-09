@@ -240,7 +240,7 @@ public class DataController : MonoBehaviour
         else
         {
             savedAlerts[4] = false;
-            alertList.Remove("Spacesuit is Receiving Power through Spacecrafte");
+            alertList.Remove("Spacesuit is Receiving Power through Spacecraft");
         }
         if (DataController.data.switchData[0].h2o_off)
         {
