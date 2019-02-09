@@ -13,7 +13,7 @@ public class PinScript : MonoBehaviour {
         RaycastHit hitInfo;
         Debug.Log("Raycast returned: " + Physics.Raycast(headPosition, gazeDirection, out hitInfo,
             30.0f, SpatialMapping.PhysicsRaycastMask));
-        if (Physics.Raycast(headPosition, gazeDirection, out hitInfo,
+        if (!Physics.Raycast(headPosition, gazeDirection, out hitInfo,
             30.0f, SpatialMapping.PhysicsRaycastMask))
         {
             AudioLibrary.AlertSound();
