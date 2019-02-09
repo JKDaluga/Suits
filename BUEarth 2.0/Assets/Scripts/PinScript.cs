@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PinScript : MonoBehaviour {
+public class PinScript : MonoBehaviour
+{
 
     public void pinProcedure()
     {        
@@ -20,12 +21,13 @@ public class PinScript : MonoBehaviour {
             // Move this object's parent object to
             // where the raycast hit the Spatial Mapping mesh.
             this.transform.position = gazeDirection.normalized * 11;
-
+          
             // Rotate this object's parent object to face the user.
             Quaternion toQuat = Camera.main.transform.localRotation;
-            toQuat.x = 0;
-            toQuat.z = 0;
+           // toQuat.x = 0;
+            //toQuat.z = 0;
             this.transform.parent.rotation = toQuat;
         }
+
     }
 }
