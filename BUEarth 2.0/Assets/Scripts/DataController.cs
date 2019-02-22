@@ -57,6 +57,7 @@ public class DataController : MonoBehaviour
         {
             yield return www;
             DataController.sdata = JsonUtility.FromJson<DataCollection>("{\"data\":" + www.text + "}");
+            print(DataController.sdata);
             stepIterator.gameObject.SetActive(true);
             stepIterator.reset();
         }

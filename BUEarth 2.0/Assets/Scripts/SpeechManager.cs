@@ -146,6 +146,13 @@ public class SpeechManager : MonoBehaviour
             this.BroadcastMessage("pinProcedure");
         });
 
+        keywords.Add("build catapult", () =>
+        {
+            print("Called Command:  Build");
+            // Call the Menu method on every descendant object.
+            this.BroadcastMessage("StartProcedure", 1);
+        });
+
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
 
