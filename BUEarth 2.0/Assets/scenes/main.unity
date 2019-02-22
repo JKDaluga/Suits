@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 132987912}
   - component: {fileID: 132987911}
   - component: {fileID: 132987913}
+  - component: {fileID: 132987914}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Manager
@@ -573,6 +574,25 @@ MonoBehaviour:
   instructionsPanel: {fileID: 1901162174}
   newVitalsPanel: {fileID: 1374391023}
   notifyPanel: {fileID: 2123274018}
+--- !u!114 &132987914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132987910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4436a142085180945bb4c30e40aa0ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimPanel: {fileID: 1077661289}
+  vitalsPanel: {fileID: 1374391023}
+  onboardingPanel: {fileID: 970534442}
+  criticalAlertPanel: {fileID: 2123274018}
+  allAlertsPanel: {fileID: 341002190}
+  stepPanel: {fileID: 922527990}
+  proceduceScreen: {fileID: 849606789}
+  text: {fileID: 1887602146}
 --- !u!1 &146521252
 GameObject:
   m_ObjectHideFlags: 0
