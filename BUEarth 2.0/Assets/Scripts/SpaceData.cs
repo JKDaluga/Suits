@@ -8,21 +8,21 @@ public class SpaceData
     public string tip;
     public string image;
 
-    public double p_suit;
+    public float p_suit;
     public string t_battery;
     public string t_oxygen;
     public string t_water;
-    public double p_sub;
-    public double t_sub;
-    public double v_fan;
+    public float p_sub;
+    public float t_sub;
+    public float v_fan;
     //public string extraVehicularActivityTime;
-    public int p_o2;
-    public double rate_o2;
-    public int cap_battery;
-    public double p_h2o_g;
-    public double p_h2o_l;
-    public double p_sop;
-    public double rate_sop;
+    public float p_o2;
+    public float rate_o2;
+    public float cap_battery;
+    public float p_h2o_g;
+    public float p_h2o_l;
+    public float p_sop;
+    public float rate_sop;
     public int heart_bpm;
 }
 
