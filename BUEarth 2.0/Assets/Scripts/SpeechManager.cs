@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
@@ -7,6 +8,7 @@ public class SpeechManager : MonoBehaviour
 {
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
+    GameObject VitalsBlock;
 
     // Use this for initialization.
 	// Voice commands
@@ -153,6 +155,15 @@ public class SpeechManager : MonoBehaviour
             this.BroadcastMessage("StartProcedure", 1);
         });
 
+        //view battery capacity time
+        keywords.Add("view battery capacity time", () =>
+        {
+            GameObject block = Instantiate(VitalsBlock, GameObject.Find("NewVitalsPanel").transform);
+            block.GetComponent<VitalsSlot>().fillamount = DataController.data.data[0].cap_battery;
+            block.GetComponent<VitalsSlot>().title.text = "Battery Capacity";
+            block.GetComponent<VitalsSlot>().subTitle.text = "HH:MM:SS";
+            block.GetComponent<VitalsSlot>().isPie = true;
+        });
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
 
