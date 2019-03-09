@@ -39,6 +39,9 @@ public class DataController : MonoBehaviour
     private bool isNewAlert = false;
     private SpeechManager speechManager;
 
+    private int currentProcedureOne;
+    private int currentProcedureTwo;
+
     // Use this for initialization
     void Start()
     {
@@ -287,6 +290,8 @@ public class DataController : MonoBehaviour
     {
         StartCoroutine(getData(i));
     }
+
+
 
     public void vitalsCall()
     {

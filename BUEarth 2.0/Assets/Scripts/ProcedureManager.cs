@@ -31,6 +31,7 @@ public class ProcedureManager : MonoBehaviour {
     public AnimationManager FadeInProcedures;
     public AnimationManager FadeOutProcedures;
     public bool isActive = false;
+    private int procedureIndex = 0;
 
     private void Start()
     {
@@ -41,15 +42,39 @@ public class ProcedureManager : MonoBehaviour {
     public void LoadProcedures()
     {
         onboardScreen.PlayAnimationFadeOut(onboardingScreen);
-        Procedure1Title.text = DataController.pdata.procedures[1].name;
-        Procedure2Title.text = DataController.pdata.procedures[2].name;
-        Procedure1Steps.text = "" + DataController.pdata.procedures[1].steps + " Steps";
-        Procedure2Steps.text = "" + DataController.pdata.procedures[2].steps + " Steps";
+        Procedure1Title.text = DataController.pdata.procedures[procedureIndex].name;
+        Procedure1Steps.text = "" + DataController.pdata.procedures[procedureIndex].steps + " Steps";
+        if (procedureIndex + 1 < DataController.pdata.procedures.Length)
+        {
+            Procedure2Title.text = DataController.pdata.procedures[procedureIndex + 1].name;
+            Procedure2Steps.text = "" + DataController.pdata.procedures[procedureIndex + 1].steps + " Steps";
+        }
+       
+       
+
         //procedureScreen1.gameObject.SetActive(true);
         //procedureScreen2.gameObject.SetActive(true);
         FadeInProcedures.PlayAnimationFadeIn(procedureScreen1);
         FadeInProcedures.PlayAnimationFadeIn(procedureScreen2);
         isActive = true;
+    }
+
+    public void NextProcedures()
+    {
+        if(procedureIndex < (DataController.pdata.procedures.Length-2))
+        {
+            procedureIndex += 2;
+            LoadProcedures();
+        }
+    }
+
+    public void PreviousProcedures()
+    {
+        if (procedureIndex > 1)
+        {
+            procedureIndex -= 2;
+            LoadProcedures();
+        }
     }
 
     public void StartProcedure(int i)
