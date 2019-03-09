@@ -3,19 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class VitalsSlot
-{
-    public Text title;
-    public Text subTitle;
-    public Text value;
-    public PieMeterController pie;
-    public GaugeMeterController gauge;
-    public float fillamount;
-    public float priority;
-    public bool isPie;
-}
-
 public class VitalsText : MonoBehaviour {
     private const int NUM_VITALS = 8;
     public VitalsSlot[] vitalsSlots = new VitalsSlot[NUM_VITALS];
@@ -206,6 +193,7 @@ public class VitalsText : MonoBehaviour {
                 vitalsSlots[i].gauge.GetComponent<GaugeMeterController>().SetProgressPercentage(priorityList[i].fillamount);
                 vitalsSlots[i].pie.gameObject.SetActive(false);
             }
+
         }
     }
 }
