@@ -109,16 +109,4 @@ public class PieMeterController : MonoBehaviour
 	{
 		AddProgressPercentage( -d );
 	}
-
-
- // For testing only!!!
-	void Update()
-	{
-		SubProgressPercentage( 0.01f );
-
-		if (progressImage.fillAmount <= 0.0f)
-		{
-			SetProgressPercentage( 1.0f );
-		}
-	}
 }

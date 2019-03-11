@@ -3,10 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class VitalsSlotData
+{
+    public string title;
+    public string subTitle;
+    public string value;
+    public float fillamount;
+    public float priority;
+    public bool isPie;
+}
+
 public class VitalsText : MonoBehaviour {
     private const int NUM_VITALS = 8;
     public VitalsSlot[] vitalsSlots = new VitalsSlot[NUM_VITALS];
-    public List<VitalsSlot> priorityList = new List<VitalsSlot>();
+    public List<VitalsSlotData> priorityList = new List<VitalsSlotData>();
 
     public string tempText;
     public string BatteryLife;
@@ -28,14 +39,16 @@ public class VitalsText : MonoBehaviour {
 
     public void UpdateText()
     {
+        priorityList.Clear();
         tempText = "" + DataController.data.data[0].t_sub;
         //EVA.text = "" + DataController.data.data[0].extraVehicularActivityTime;
         EVA = "";
 
         //Example Pie Meter
         string[] timeArray = DataController.data.data[0].t_battery.Split(':');
+        print(float.Parse(timeArray[0]));
         float seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
-        float tempFillAmount = float.Parse(DataController.data.data[0].t_battery) / 36000;
+        float tempFillAmount = seconds / 36000;
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if(tempFillAmount < 0) tempFillAmount = 0;
         float tempPriority = tempFillAmount;
@@ -48,19 +61,14 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(o2p);
         tempFillAmount = o2p / 2 + 0.5f;
         AddToList("Oxygen", "Current Pressure", DataController.data.data[0].p_o2.ToString(), tempFillAmount, tempPriority, false);
-        //VitalsSlot o2pPrioity = new VitalsSlot("batteryLife", BatteryLifeFillAmount);
-        //AddToList(o2pPrioity);
 
-        //750 - 950 850
-        //O2Pressure = "" + DataController.data.data[0].p_o2 + " psia";
-
-        timeArray = DataController.data.data[0].t_water.Split(':');
-        seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
-        tempFillAmount = float.Parse(DataController.data.data[0].t_water) / 36000;
+        /*string[] timeArray2 = DataController.data.data[0].t_water.Split(':');
+        seconds = float.Parse(timeArray[0]) * 3600f + float.Parse(timeArray[1]) * 60f + float.Parse(timeArray[2]);
+        tempFillAmount = float.Parse(DataController.data.data[0].t_water) / 36000f;
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
-        AddToList("H2O", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);
+        AddToList("H2O", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);*/
 
         float fanSpeed = DataController.data.data[0].v_fan;
         fanSpeed -=25000;
@@ -74,7 +82,7 @@ public class VitalsText : MonoBehaviour {
         subp /= 1;
         tempPriority = 1 - Mathf.Abs(subp);
         tempFillAmount = subp / 2 + 0.5f;
-        AddToList("Fan", "Current RPM", DataController.data.data[0].p_sub.ToString(), tempFillAmount, tempPriority, false);
+        AddToList("Sub", "SubPressure", DataController.data.data[0].p_sub.ToString(), tempFillAmount, tempPriority, false);
 
         float o2r = DataController.data.data[0].rate_o2;
         o2r -= 0.75f;
@@ -84,11 +92,11 @@ public class VitalsText : MonoBehaviour {
         AddToList("Oxygen", "Current Rate", DataController.data.data[0].rate_o2.ToString(), tempFillAmount, tempPriority, false);
 
         float batcap = DataController.data.data[0].cap_battery;
-        tempFillAmount = float.Parse(DataController.data.data[0].t_water) / 30;
+        tempFillAmount = DataController.data.data[0].cap_battery / 30f;
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
-        AddToList("H2O", "Time Remaining", DataController.data.data[0].cap_battery.ToString(), tempFillAmount, tempPriority, true);
+        AddToList("Battery", "Capacity", DataController.data.data[0].cap_battery.ToString(), tempFillAmount, tempPriority, true);
 
         float h20pg = DataController.data.data[0].p_h2o_g;
         h20pg -= 15;
@@ -116,7 +124,7 @@ public class VitalsText : MonoBehaviour {
         sopr /= .25f;
         tempPriority = 1 - Mathf.Abs(sopr);
         tempFillAmount = sopr / 2 + 0.5f;
-        AddToList("H2O", "Liquid Pressure", DataController.data.data[0].rate_o2.ToString(), tempFillAmount, tempPriority, false);
+        AddToList("SOP", "Rate", DataController.data.data[0].rate_o2.ToString(), tempFillAmount, tempPriority, false);
 
         float suitp = DataController.data.data[0].p_suit;
         suitp -= 3;
@@ -125,15 +133,15 @@ public class VitalsText : MonoBehaviour {
         tempFillAmount = suitp / 2 + 0.5f;
         AddToList("Suit", "Current Pressure", DataController.data.data[0].rate_o2.ToString(), tempFillAmount, tempPriority, false);
 
-        timeArray = DataController.data.data[0].t_oxygen.Split(':');
+        /*timeArray = DataController.data.data[0].t_oxygen.Split(':');
         seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
         tempFillAmount = float.Parse(DataController.data.data[0].t_water) / 36000;
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
-        AddToList("Oxygen", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);
+        AddToList("Oxygen", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);*/
 
-        BatteryCapacity = "" + DataController.data.data[0].cap_battery + " Ah";
+        /*BatteryCapacity = "" + DataController.data.data[0].cap_battery + " Ah";
         OxygenLife = "" + DataController.data.data[0].t_oxygen;
         
         H2OLife = "" + DataController.data.data[0].t_water;
@@ -147,7 +155,7 @@ public class VitalsText : MonoBehaviour {
         FanTachometer = "" + DataController.data.data[0].v_fan + " RPM";
         SUBPressure = "" + DataController.data.data[0].p_sub + " psia";
         SUBTemp = "" + DataController.data.data[0].t_sub + "°F";
-        BPM = "" + DataController.data.data[0].heart_bpm + " BPM";
+        BPM = "" + DataController.data.data[0].heart_bpm + " BPM";*/
 
         UpdateList();
     }
@@ -155,12 +163,13 @@ public class VitalsText : MonoBehaviour {
     void AddToList(string title, string subTitle, string value, float fillAmount, float priority, bool isPie)
     {
         //create the vitalslot
-        VitalsSlot tempVitalsSlot = new VitalsSlot();
+        print(title);
+        VitalsSlotData tempVitalsSlot = new VitalsSlotData();
         tempVitalsSlot.fillamount = fillAmount;
         tempVitalsSlot.priority = priority;
-        tempVitalsSlot.title.text = title;
-        tempVitalsSlot.subTitle.text = subTitle;
-        tempVitalsSlot.value.text = value;
+        tempVitalsSlot.title = title;
+        tempVitalsSlot.subTitle = subTitle;
+        tempVitalsSlot.value = value;
         for (int i = 0; i < priorityList.Count; i++)
         {
             if(priority > priorityList[i].priority)
@@ -176,9 +185,9 @@ public class VitalsText : MonoBehaviour {
     {
         for(int i = 0; i < NUM_VITALS; i++)
         {
-            vitalsSlots[i].title = priorityList[i].title;
-            vitalsSlots[i].subTitle = priorityList[i].subTitle;
-            vitalsSlots[i].value = priorityList[i].value;
+            vitalsSlots[i].title.text = priorityList[i].title;
+            vitalsSlots[i].subTitle.text = priorityList[i].subTitle;
+            vitalsSlots[i].value.text = priorityList[i].value;
             vitalsSlots[i].fillamount = priorityList[i].fillamount;
             //Set the graph to pie or gauge
             if(priorityList[i].isPie)

@@ -130,16 +130,4 @@ public class GaugeMeterController : MonoBehaviour
 	{
 		AddProgressPercentage( -d );
 	}
-
-
- // For testing only!!!
-	void Update()
-	{
-		SubProgressPercentage( 0.01f );
-
-		if (currentPercent <= 0.0f)
-		{
-			SetProgressPercentage( 1.0f );
-		}
-	}
 }

@@ -23,13 +23,13 @@ public class DataController : MonoBehaviour
     public static ProcedureCollection pdata;
     public StepIterator stepIterator;
     //private string gameDataFileName = "SpaceData.json";
-    //private string gameDataStepData = "Procedure1.json";
-    private static string url = "https://bradleyinteractive.com/suits-api/procedure/";
+    //private string gameDataStepData = "Procedure1.json";http://api.buearth.space/procedure/1
+    private static string url = "http://api.buearth.space/procedure/";
     private static string vitalsUrl = "http://mercury-program.herokuapp.com/api/suit/recent";
     private static string switchUrl = "http://mercury-program.herokuapp.com/api/suitswitch/recent";
-    private static string HelpUrl = "https://bradleyinteractive.com/suits-api/objects";
+    //private static string HelpUrl = "https://bradleyinteractive.com/suits-api/objects";
     private static bool isGetData = true;
-    private static string proceduresUrl = "https://bradleyinteractive.com/suits-api/procedures";
+    private static string proceduresUrl = "http://api.buearth.space/procedures";
     public string alertMessege;
     public GameObject CriticalAlertPanel;
     public Text alertText;
@@ -45,7 +45,6 @@ public class DataController : MonoBehaviour
         //DataController.data = JsonUtility.FromJson<DataCollection>(LoadData(gameDataFileName));
         //StartCoroutine(getData());
         //speechManager = GameObject.FindWithTag("Screens").GetComponent<SpeechManager>();
-        StartCoroutine(getHelpData());
         StartCoroutine(getVitalsData());
         StartCoroutine(getProcedureData());
         StartCoroutine(getSwitchData());
@@ -125,16 +124,6 @@ public class DataController : MonoBehaviour
             vitalsText.UpdateText();
         }
         Invoke("vitalsCall", 1);
-    }
-
-    IEnumerator getHelpData()
-    {
-        using (WWW www = new WWW(HelpUrl))
-        {
-            yield return www;
-            DataController.data = JsonUtility.FromJson<DataCollection>("{\"helpData\":" + www.text + "}");
-        }
-        //speechManager.addHelpKeywords();
     }
 
     private static string LoadData(string filename)
