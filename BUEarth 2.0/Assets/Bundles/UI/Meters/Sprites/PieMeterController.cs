@@ -8,8 +8,8 @@ public class PieMeterController : MonoBehaviour
 {
  // Public variables
  	[Header( "State Determination" )]
-	 [Tooltip( "Lowest percentage that will result in a caution state/color (danger state overides this)" )]
-	public float cautionPoint = 0.64f; // [0.0f, 1.0f] // Can be lower than 0 to have no effect
+	// [Tooltip( "Lowest percentage that will result in a caution state/color (danger state overides this)" )]
+	//public float cautionPoint = 0.64f; // [0.0f, 1.0f] // Can be lower than 0 to have no effect
 	 [Tooltip( "Lowest percentage that will result in a danger state/color" )]
 	public float dangerPoint = 0.25f; // [0.0f, 1.0f] // Can be lower than 0 to have no effect
 
@@ -57,12 +57,12 @@ public class PieMeterController : MonoBehaviour
 			foreLineImage.color = dangerColor;
 			currentState = 2;
 		}
-	 else if (progressImage.fillAmount <= cautionPoint) // Cautious levels
+	 /*else if (progressImage.fillAmount <= cautionPoint) // Cautious levels
 		{
 			progressImage.color = cautionColor;
 			foreLineImage.color = cautionColor;
 			currentState = 1;
-		}
+		}*/
 	 else // Everythings all good
 		{
 			progressImage.color = stableColor;

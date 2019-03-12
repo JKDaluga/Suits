@@ -340,7 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8a883ed933d47bf8a83a4fc496d127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cautionPoint: 0.64
   dangerPoint: 0.25
   stableColor: {r: 0, g: 0.9803922, b: 0.3411765, a: 1}
   cautionColor: {r: 1, g: 0.8392157, b: 0, a: 1}
@@ -490,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.147, b: 0.384, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -549,9 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd2567a2b7044034a44b7ac097d4902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needleWidth: 0.05
-  cautionPointLow: 0.45
-  cautionPointHigh: 0.65
+  needleWidth: 0.1
   dangerPointLow: 0.15
   dangerPointHigh: 0.85
   stableColor: {r: 0, g: 0.9803922, b: 0.3411765, a: 1}

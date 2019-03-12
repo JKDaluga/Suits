@@ -12,10 +12,10 @@ public class GaugeMeterController : MonoBehaviour
  	public float needleWidth = 0.05f; // [0.0f, 1.0f]
 
   [Header( "State Determination" )]
-   [Tooltip( "Lowest percentage that will result in a caution state/color (danger state overides this)" )]
-	public float cautionPointLow = 0.45f; // [0.0f, 1.0f] // Can be lower than 0 to have no effect
-   [Tooltip( "Highest percentage that will result in a caution state/color (danger state overides this)" )]
-	public float cautionPointHigh = 0.65f; // [0.0f, 1.0f] // Can be higher than 1 to have no effect
+   //[Tooltip( "Lowest percentage that will result in a caution state/color (danger state overides this)" )]
+	//public float cautionPointLow = 0.45f; // [0.0f, 1.0f] // Can be lower than 0 to have no effect
+   //[Tooltip( "Highest percentage that will result in a caution state/color (danger state overides this)" )]
+	//public float cautionPointHigh = 0.65f; // [0.0f, 1.0f] // Can be higher than 1 to have no effect
    [Tooltip( "Lowest percentage that will result in a danger state/color" )]
 	public float dangerPointLow = 0.15f; // [0.0f, 1.0f] // Can be lower than 0 to have no effect
    [Tooltip( "Highest percentage that will result in a danger state/color" )]
@@ -68,12 +68,12 @@ public class GaugeMeterController : MonoBehaviour
 			foreLineImage.color = dangerColor;
 			currentState = 2;
 		}
-	 else if (currentPercent <= cautionPointLow || currentPercent >= cautionPointHigh) // Cautious levels
+	/* else if (currentPercent <= cautionPointLow || currentPercent >= cautionPointHigh) // Cautious levels
 		{
 			progressImage.color = cautionColor;
 			foreLineImage.color = cautionColor;
 			currentState = 1;
-		}
+		}*/
 	 else // Everythings all good
 		{
 			progressImage.color = stableColor;
