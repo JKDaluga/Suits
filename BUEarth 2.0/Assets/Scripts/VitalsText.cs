@@ -62,13 +62,13 @@ public class VitalsText : MonoBehaviour {
         tempFillAmount = o2p / 2 + 0.5f;
         AddToList("Oxygen", "Current Pressure", DataController.data.data[0].p_o2.ToString(), tempFillAmount, tempPriority, false);
 
-        /*string[] timeArray2 = DataController.data.data[0].t_water.Split(':');
-        seconds = float.Parse(timeArray[0]) * 3600f + float.Parse(timeArray[1]) * 60f + float.Parse(timeArray[2]);
-        tempFillAmount = float.Parse(DataController.data.data[0].t_water) / 36000f;
+        string[] timeArray2 = DataController.data.data[0].t_water.Split(':');
+        seconds = float.Parse(timeArray2[0]) * 3600f + float.Parse(timeArray2[1]) * 60f + float.Parse(timeArray2 [2]);
+        tempFillAmount = seconds /*float.Parse(DataController.data.data[0].t_water)*/ / 36000f;
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
-        AddToList("H2O", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);*/
+        AddToList("H2O", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);
 
         float fanSpeed = DataController.data.data[0].v_fan;
         fanSpeed -=25000;
@@ -133,13 +133,13 @@ public class VitalsText : MonoBehaviour {
         tempFillAmount = suitp / 2 + 0.5f;
         AddToList("Suit", "Current Pressure", DataController.data.data[0].rate_o2.ToString(), tempFillAmount, tempPriority, false);
 
-        /*timeArray = DataController.data.data[0].t_oxygen.Split(':');
-        seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
-        tempFillAmount = float.Parse(DataController.data.data[0].t_water) / 36000;
+        string[] timeArray3 = DataController.data.data[0].t_oxygen.Split(':');
+        seconds = float.Parse(timeArray3[0]) * 3600 + float.Parse(timeArray3[1]) * 60 + float.Parse(timeArray3[2]);
+        tempFillAmount = seconds /*float.Parse(DataController.data.data[0].t_water)*/ / 36000f;
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
-        AddToList("Oxygen", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);*/
+        AddToList("Oxygen", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);
 
         /*BatteryCapacity = "" + DataController.data.data[0].cap_battery + " Ah";
         OxygenLife = "" + DataController.data.data[0].t_oxygen;
