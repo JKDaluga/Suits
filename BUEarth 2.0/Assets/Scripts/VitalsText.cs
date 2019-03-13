@@ -52,14 +52,16 @@ public class VitalsText : MonoBehaviour {
         if (tempFillAmount > 1) tempFillAmount = 1;
         else if(tempFillAmount < 0) tempFillAmount = 0;
         float tempPriority = tempFillAmount;
-        AddToList("Battery", "Time Remaining", DataController.data.data[0].t_battery, tempFillAmount, tempPriority, true);
+        AddToList("Battery", "Time Remaining", "" + DataController.data.data[0].t_battery + "", tempFillAmount, tempPriority, true);
 
         //Example Gauge Meter
         float o2p = DataController.data.data[0].p_o2;
         o2p -= 850;
-        o2p /= 100;
+        o2p /= (100/0.7f);
         tempPriority = 1 - Mathf.Abs(o2p);
         tempFillAmount = o2p / 2 + 0.5f;
+        if (tempFillAmount > .9) tempFillAmount = .9f;
+        else if (tempFillAmount < .1f) tempFillAmount = .1f;
         AddToList("Oxygen", "Current Pressure", DataController.data.data[0].p_o2.ToString(), tempFillAmount, tempPriority, false);
 
         string[] timeArray2 = DataController.data.data[0].t_water.Split(':');
@@ -72,7 +74,7 @@ public class VitalsText : MonoBehaviour {
 
         float fanSpeed = DataController.data.data[0].v_fan;
         fanSpeed -=25000;
-        fanSpeed /= 15000;
+        fanSpeed /= 15000 / 0.7f;
         tempPriority = 1 - Mathf.Abs(fanSpeed);
         tempFillAmount = fanSpeed / 2 + 0.5f;
         AddToList("Fan", "Current RPM", DataController.data.data[0].v_fan.ToString(), tempFillAmount, tempPriority, false);
@@ -80,12 +82,13 @@ public class VitalsText : MonoBehaviour {
         float subp = DataController.data.data[0].p_sub;
         subp -= 3;
         tempPriority = 1 - Mathf.Abs(subp);
+        subp += 0.7f;
         tempFillAmount = subp / 2 + 0.5f;
         AddToList("Sub", "SubPressure", DataController.data.data[0].p_sub.ToString(), tempFillAmount, tempPriority, false);
 
         float o2r = DataController.data.data[0].rate_o2;
         o2r -= 0.75f;
-        o2r /= 0.25f;
+        o2r /= 0.25f / 0.7f;
         tempPriority = 1 - Mathf.Abs(o2r);
         tempFillAmount = o2r / 2 + 0.5f;
         AddToList("Oxygen", "Current Rate", DataController.data.data[0].rate_o2.ToString(), tempFillAmount, tempPriority, false);
@@ -99,35 +102,35 @@ public class VitalsText : MonoBehaviour {
 
         float h20pg = DataController.data.data[0].p_h2o_g;
         h20pg -= 15;
-        h20pg /= 1;
+        h20pg /= 1 / 0.7f;
         tempPriority = 1 - Mathf.Abs(h20pg);
         tempFillAmount = h20pg / 2 + 0.5f;
         AddToList("H2O", "Gas Pressure", DataController.data.data[0].p_h2o_g.ToString(), tempFillAmount, tempPriority, false);
 
         float h20pl = DataController.data.data[0].p_h2o_g;
         h20pl -= 15;
-        h20pl /= 1;
+        h20pl /= 1 / 0.7f;
         tempPriority = 1 - Mathf.Abs(h20pl);
         tempFillAmount = h20pl / 2 + 0.5f;
         AddToList("H2O", "Liquid Pressure", DataController.data.data[0].p_h2o_g.ToString(), tempFillAmount, tempPriority, false);
 
         float sopp = DataController.data.data[0].p_sop;
         sopp -= 850;
-        sopp /= 100;
+        sopp /= 100 / 0.7f;
         tempPriority = 1 - Mathf.Abs(sopp);
         tempFillAmount = sopp / 2 + 0.5f;
         AddToList("SOP", "Current Pressure", DataController.data.data[0].p_sop.ToString(), tempFillAmount, tempPriority, false);
 
         float sopr = DataController.data.data[0].rate_sop;
         sopr -= .75f;
-        sopr /= .25f;
+        sopr /= .25f / 0.7f;
         tempPriority = 1 - Mathf.Abs(sopr);
         tempFillAmount = sopr / 2 + 0.5f;
         AddToList("SOP", "Rate", DataController.data.data[0].rate_sop.ToString(), tempFillAmount, tempPriority, false);
 
         float suitp = DataController.data.data[0].p_suit;
         suitp -= 3;
-        suitp /= 1;
+        suitp /= 1 / 0.7f;
         tempPriority = 1 - Mathf.Abs(suitp);
         tempFillAmount = suitp / 2 + 0.5f;
         AddToList("Suit", "Current Pressure", DataController.data.data[0].p_suit.ToString(), tempFillAmount, tempPriority, false);

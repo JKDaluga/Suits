@@ -108,7 +108,7 @@ public class GaugeMeterController : MonoBehaviour
 	public void SetProgressPercentage( float p )
 	{
 	 // Set the new percentage value as the fillamount of the progress image while keeping it between 0 and 1
-		currentPercent = Mathf.Clamp( p,0.0f,1.0f );
+		currentPercent = Mathf.Clamp( p,0.14f,.9f );
 
 	// Update needle effect
 		UpdateNeedleVisuals();
