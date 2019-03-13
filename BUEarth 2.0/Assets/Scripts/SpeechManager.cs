@@ -8,7 +8,7 @@ public class SpeechManager : MonoBehaviour
 {
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
-    GameObject VitalsBlock;
+    public GameObject VitalsBlock;
 
     // Use this for initialization.
 	// Voice commands
@@ -156,13 +156,16 @@ public class SpeechManager : MonoBehaviour
         });
 
         //view battery capacity time
-        keywords.Add("view battery capacity time", () =>
+        keywords.Add("view bat cap", () =>
         {
-            GameObject block = Instantiate(VitalsBlock, GameObject.Find("NewVitalsPanel").transform);
+            print("Called Command: view bat cap");
+            GameObject block = Instantiate(VitalsBlock, GameObject.Find("VitalsCanvas").transform);
             block.GetComponent<VitalsSlot>().fillamount = DataController.data.data[0].cap_battery;
             block.GetComponent<VitalsSlot>().title.text = "Battery Capacity";
             block.GetComponent<VitalsSlot>().subTitle.text = "HH:MM:SS";
-            block.GetComponent<VitalsSlot>().isPie = true;
+            block.transform.GetChild(0).gameObject.SetActive(true);
+            block.transform.GetChild(0).GetComponent<PieMeterController>().SetProgressPercentage(DataController.data.data[0].cap_battery);
+            block.transform.GetChild(1).gameObject.SetActive(false);
         });
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
