@@ -176,7 +176,6 @@ public class VitalsText : MonoBehaviour {
         {
             if(priority < priorityList[i].priority)
             {
-                print(i);
                 priorityList.Insert(i, tempVitalsSlot);
                 return;
             }
@@ -198,12 +197,28 @@ public class VitalsText : MonoBehaviour {
                 vitalsSlots[i].pie.gameObject.SetActive(true);
                 vitalsSlots[i].pie.GetComponent<PieMeterController>().SetProgressPercentage(priorityList[i].fillamount);
                 vitalsSlots[i].gauge.gameObject.SetActive(false);
+                if (priorityList[i].fillamount <= .25f)
+                {
+                    vitalsSlots[i].value.color = new Color(1.0f, 0.172549f, 0.3333333f);
+                }
+                else
+                {
+                    vitalsSlots[i].value.color = new Color(0.0f, 0.9803922f, 0.3411765f);
+                }
             }
             else
             {
                 vitalsSlots[i].gauge.gameObject.SetActive(true);
                 vitalsSlots[i].gauge.GetComponent<GaugeMeterController>().SetProgressPercentage(priorityList[i].fillamount);
                 vitalsSlots[i].pie.gameObject.SetActive(false);
+                if (priorityList[i].fillamount <= .15f || priorityList[i].fillamount >= .85f)
+                {
+                    vitalsSlots[i].value.color = new Color(1.0f, 0.172549f, 0.3333333f);
+                }
+                else
+                {
+                    vitalsSlots[i].value.color = new Color(0.0f, 0.9803922f, 0.3411765f);
+                }
             }
             print(priorityList[i].fillamount);
         }

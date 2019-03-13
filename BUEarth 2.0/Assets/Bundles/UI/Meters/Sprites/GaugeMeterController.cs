@@ -50,6 +50,7 @@ public class GaugeMeterController : MonoBehaviour
 		foreFillImage = transform.Find( "ForeFill" ).GetComponent<Image>();
 		foreLineImage = transform.Find( "ForeLine" ).GetComponent<Image>();
 
+        print(progressImage);
 	 // Update needle effect
 	  UpdateNeedleVisuals();
 
