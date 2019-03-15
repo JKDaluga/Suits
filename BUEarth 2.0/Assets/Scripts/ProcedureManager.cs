@@ -49,6 +49,11 @@ public class ProcedureManager : MonoBehaviour {
             Procedure2Title.text = DataController.pdata.procedures[procedureIndex + 1].name;
             Procedure2Steps.text = "" + DataController.pdata.procedures[procedureIndex + 1].steps + " Steps";
         }
+        else
+        {
+            Procedure2Title.text = null;
+            Procedure2Steps.text = null;
+        }
        
        
 
