@@ -32,11 +32,13 @@ public class ProcedureManager : MonoBehaviour {
     public AnimationManager FadeOutProcedures;
     public bool isActive = false;
     private int procedureIndex = 0;
+    public GameObject procedure2Screen;
 
     private void Start()
     {
         FadeInProcedures = GameObject.FindWithTag("Manager").GetComponent<AnimationManager>();
         FadeOutProcedures = GameObject.FindWithTag("Manager").GetComponent<AnimationManager>();
+        procedure2Screen.SetActive(false);
     }
 
     public void LoadProcedures()
@@ -46,13 +48,17 @@ public class ProcedureManager : MonoBehaviour {
         Procedure1Steps.text = "" + DataController.pdata.procedures[procedureIndex].steps + " Steps";
         if (procedureIndex + 1 < DataController.pdata.procedures.Length)
         {
+            procedure2Screen.SetActive(true);
+            Debug.Log("Butts debug");
             Procedure2Title.text = DataController.pdata.procedures[procedureIndex + 1].name;
             Procedure2Steps.text = "" + DataController.pdata.procedures[procedureIndex + 1].steps + " Steps";
         }
         else
         {
-            Procedure2Title.text = null;
-            Procedure2Steps.text = null;
+            procedure2Screen.SetActive(false);
+            Procedure2Title.text = "butts";
+            Procedure2Steps.text = "butts";
+            //Procedure
         }
        
        
