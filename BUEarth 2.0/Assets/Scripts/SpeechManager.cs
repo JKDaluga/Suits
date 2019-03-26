@@ -179,7 +179,7 @@ public class SpeechManager : MonoBehaviour
         keywords.Add("view bat cap", () =>
         {
             print("Called Command: view bat cap");
-            GameObject block = Instantiate(VitalsBlock, GameObject.Find("VitalsCanvas").transform);
+            GameObject block = Instantiate(VitalsBlock, new Vector3(0, 0, 4), new Quaternion(0, 0, 0, 0), GameObject.Find("VitalsCanvas").transform);
             block.GetComponent<VitalsSlot>().fillamount = DataController.data.data[0].cap_battery;
             block.GetComponent<VitalsSlot>().title.text = "Battery Capacity";
             block.GetComponent<VitalsSlot>().subTitle.text = "HH:MM:SS";
