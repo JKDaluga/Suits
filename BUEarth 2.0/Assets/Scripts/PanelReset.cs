@@ -22,7 +22,7 @@ public class PanelReset : MonoBehaviour
 	    criticalAlertPanel.SetActive(true);
         allAlertsPanel.SetActive(false);
         stepPanel.SetActive(false);
-        proceduceScreen.SetActive(true);
+       // proceduceScreen.SetActive(true);
         text.SetActive(false);
 	}
 	

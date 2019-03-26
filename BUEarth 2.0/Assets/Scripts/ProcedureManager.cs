@@ -49,15 +49,16 @@ public class ProcedureManager : MonoBehaviour {
         if (procedureIndex + 1 < DataController.pdata.procedures.Length)
         {
             procedure2Screen.SetActive(true);
-            Debug.Log("Butts debug");
+            //Debug.Log("Butts debug");
             Procedure2Title.text = DataController.pdata.procedures[procedureIndex + 1].name;
             Procedure2Steps.text = "" + DataController.pdata.procedures[procedureIndex + 1].steps + " Steps";
+            FadeInProcedures.PlayAnimationFadeIn(procedureScreen2);
         }
         else
         {
             procedure2Screen.SetActive(false);
-            Procedure2Title.text = "butts";
-            Procedure2Steps.text = "butts";
+            Procedure2Title.text = "";
+            Procedure2Steps.text = "";
             //Procedure
         }
        
@@ -66,7 +67,7 @@ public class ProcedureManager : MonoBehaviour {
         //procedureScreen1.gameObject.SetActive(true);
         //procedureScreen2.gameObject.SetActive(true);
         FadeInProcedures.PlayAnimationFadeIn(procedureScreen1);
-        FadeInProcedures.PlayAnimationFadeIn(procedureScreen2);
+       
         isActive = true;
     }
 
