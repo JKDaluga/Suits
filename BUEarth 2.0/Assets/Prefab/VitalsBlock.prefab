@@ -344,7 +344,9 @@ MonoBehaviour:
   stableColor: {r: 0, g: 0.9803922, b: 0.3411765, a: 1}
   cautionColor: {r: 1, g: 0.8392157, b: 0, a: 1}
   dangerColor: {r: 1, g: 0.172549, b: 0.3333333, a: 1}
+  backFillImage: {fileID: 114544417685381244}
   progressImage: {fileID: 114769534787890648}
+  foreLineImage: {fileID: 114588749704802114}
 --- !u!114 &114478651543970188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,6 +557,10 @@ MonoBehaviour:
   stableColor: {r: 0, g: 0.9803922, b: 0.3411765, a: 1}
   cautionColor: {r: 1, g: 0.8392157, b: 0, a: 1}
   dangerColor: {r: 1, g: 0.172549, b: 0.3333333, a: 1}
+  backFillImage: {fileID: 114531972651323436}
+  progressImage: {fileID: 114245946479080900}
+  foreFillImage: {fileID: 114885890904979100}
+  foreLineImage: {fileID: 114697070487575464}
 --- !u!114 &114728537240790898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +982,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72.90015, y: 126}
+  m_AnchoredPosition: {x: -72.90015, y: 30}
   m_SizeDelta: {x: 118.9, y: 54.5}
   m_Pivot: {x: 0.5, y: 0.5}

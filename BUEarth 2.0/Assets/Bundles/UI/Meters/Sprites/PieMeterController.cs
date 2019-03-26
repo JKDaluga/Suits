@@ -24,9 +24,9 @@ public class PieMeterController : MonoBehaviour
 
 
  // Private variables
-	private Image backFillImage; // Reference to background fill color image
+	public Image backFillImage; // Reference to background fill color image
 	public Image progressImage; // Reference to progress meter fill color image (most important)
-	private Image foreLineImage; // Reference to foreground outline color image
+	public Image foreLineImage; // Reference to foreground outline color image
 	private int currentState = 0; // 0 = stable, 1 = caution, 2 = danger
 
 

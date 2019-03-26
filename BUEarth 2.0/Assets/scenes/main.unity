@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -635,6 +635,7 @@ GameObject:
   - component: {fileID: 132987911}
   - component: {fileID: 132987913}
   - component: {fileID: 132987914}
+  - component: {fileID: 132987915}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Manager
@@ -703,6 +704,24 @@ MonoBehaviour:
   stepPanel: {fileID: 922527990}
   proceduceScreen: {fileID: 849606789}
   text: {fileID: 1887602146}
+--- !u!114 &132987915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132987910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d04de789fbaca42a2d3891a49424ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StoredStabilitySamples: 60
+  PositionDropOffRadius: 0.02
+  DirectionDropOffRadius: 0.1
+  PositionStrength: 0.66
+  DirectionStrength: 0.83
+  StabilityAverageDistanceWeight: 2
+  StabilityVarianceWeight: 1
 --- !u!1 &146521252
 GameObject:
   m_ObjectHideFlags: 0
@@ -9448,10 +9467,6 @@ Prefab:
     - target: {fileID: 1425895965902694, guid: 16888ae7131c24041be1e3edac8f732c, type: 2}
       propertyPath: m_Name
       value: VitalsBlock1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425895965902694, guid: 16888ae7131c24041be1e3edac8f732c, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16888ae7131c24041be1e3edac8f732c, type: 2}

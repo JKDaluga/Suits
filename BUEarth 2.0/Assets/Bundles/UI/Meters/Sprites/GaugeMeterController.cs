@@ -32,10 +32,10 @@ public class GaugeMeterController : MonoBehaviour
 
 
  // Private variables
-	private Image backFillImage; // Reference to background fill color image
-	private Image progressImage; // Reference to progress meter fill color image (most important)
-	private Image foreFillImage; // Reference to foreground fill color image (covers up other side of progress image)
-	private Image foreLineImage; // Reference to foreground outline color image
+	public Image backFillImage; // Reference to background fill color image
+	public Image progressImage; // Reference to progress meter fill color image (most important)
+	public Image foreFillImage; // Reference to foreground fill color image (covers up other side of progress image)
+	public Image foreLineImage; // Reference to foreground outline color image
 	private float currentPercent = 1.0f; // Store current progress internalls instead of using fillamount because of the needle visualization stuff below
 	private int currentState = 0; // 0 = stable, 1 = caution, 2 = danger
 	private float needleWidthHalf;

@@ -112,6 +112,7 @@ MonoBehaviour:
   stableColor: {r: 0, g: 0.9803922, b: 0.3411765, a: 1}
   cautionColor: {r: 1, g: 0.8392157, b: 0, a: 1}
   dangerColor: {r: 1, g: 0.172549, b: 0.3333333, a: 1}
+  progressImage: {fileID: 114225565945985172}
 --- !u!114 &114207777011549764
 MonoBehaviour:
   m_ObjectHideFlags: 1
