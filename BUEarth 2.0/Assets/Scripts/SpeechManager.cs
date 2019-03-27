@@ -56,7 +56,7 @@ public class SpeechManager : MonoBehaviour
         {
             print("Called Command: Continue");
             // Call the Menu method on every descendant object.
-            this.BroadcastMessage("LoadProcedure");
+            this.BroadcastMessage("LoadProcedures");
         });
 
         keywords.Add("Stop Procedure", () =>
@@ -85,20 +85,20 @@ public class SpeechManager : MonoBehaviour
 
         keywords.Add("Start Procedure One", () =>
         {
-            int i = 0;
+            int i = 2;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
         });
 
         keywords.Add("Start Procedure Two", () =>
         {
-            int i = 1;
+            int i = 3;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
         });
         keywords.Add("Start Procedure Three", () =>
         {
-            int i = 2;
+            int i = 0;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
         });
