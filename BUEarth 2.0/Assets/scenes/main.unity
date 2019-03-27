@@ -5275,6 +5275,7 @@ MonoBehaviour:
   FadeInProcedures: {fileID: 132987913}
   FadeOutProcedures: {fileID: 0}
   isActive: 0
+  procedure2Screen: {fileID: 3355409}
 --- !u!1 &831265045
 GameObject:
   m_ObjectHideFlags: 0
