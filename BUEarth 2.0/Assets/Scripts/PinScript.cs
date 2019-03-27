@@ -18,7 +18,7 @@ public class PinScript : MonoBehaviour
         this.transform.position = gazeDirection.normalized * 11;
 
         // Rotate this object's parent object to face the user.
-        Quaternion toQuat = Camera.main.transform.localRotation;
+        Quaternion toQuat = Quaternion.LookRotation(-Camera.main.transform.forward);
         // toQuat.x = 0;
         //toQuat.z = 0;
         this.transform.parent.rotation = toQuat;
