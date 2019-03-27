@@ -46,7 +46,6 @@ public class VitalsText : MonoBehaviour {
 
         //Example Pie Meter
         string[] timeArray = DataController.data.data[0].t_battery.Split(':');
-        print(float.Parse(timeArray[0]));
         float seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
         float tempFillAmount = seconds / 36000;
         if (tempFillAmount > 1) tempFillAmount = 1;
@@ -220,7 +219,6 @@ public class VitalsText : MonoBehaviour {
                     vitalsSlots[i].value.color = new Color(0.0f, 0.9803922f, 0.3411765f);
                 }
             }
-            print(priorityList[i].fillamount);
         }
     }
 }

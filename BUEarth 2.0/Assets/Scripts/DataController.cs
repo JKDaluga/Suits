@@ -191,7 +191,6 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[2])
             {
-                print("Fan Error Detected");
                 isNewAlert = true;
                 savedAlerts[2] = true;
                 alertMessege = "Cooling Fan Failure";
