@@ -181,6 +181,11 @@ public class SpeechManager : MonoBehaviour
             print("Called Command: view bat cap");
             this.BroadcastMessage("SpawnBatteryBlock");
         });
+
+        keywords.Add("pin bat cap", () =>
+        {
+            this.BroadcastMessage("PinIndividualPanel");
+        });
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
 
