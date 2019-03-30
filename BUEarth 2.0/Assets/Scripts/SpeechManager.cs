@@ -182,9 +182,22 @@ public class SpeechManager : MonoBehaviour
             this.BroadcastMessage("SpawnBatteryBlock");
         });
 
+        //Make the current individual vitals panel stay in place
         keywords.Add("pin bat cap", () =>
         {
             this.BroadcastMessage("PinIndividualPanel");
+        });
+
+        //Remove the individual vitals panel being looked at
+        keywords.Add("remove panel", () =>
+        {
+            this.BroadcastMessage("RemoveFocusedPanel");
+        });
+
+        //Remove the first pinned vitals panel
+        keywords.Add("remove first panel", () =>
+        {
+            this.BroadcastMessage("RemoveFirstPanel");
         });
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
