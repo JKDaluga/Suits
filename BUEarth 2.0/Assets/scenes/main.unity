@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5290,6 +5290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VitalsBlock: {fileID: 1425895965902694, guid: 16888ae7131c24041be1e3edac8f732c,
     type: 2}
+  CurrentBlock: {fileID: 0}
+  PinnedBlocks: []
+  PinTime: 10
 --- !u!1 &831265045
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,7 +5939,6 @@ GameObject:
   m_Component:
   - component: {fileID: 922527991}
   - component: {fileID: 922527993}
-  - component: {fileID: 922527992}
   - component: {fileID: 922527995}
   m_Layer: 5
   m_Name: StepPanel
@@ -5967,17 +5969,6 @@ RectTransform:
   m_AnchoredPosition: {x: 43, y: -34}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &922527992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 922527990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97219ce71c87ada48a6a0ee09a7dc70f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &922527993
 CanvasRenderer:
   m_ObjectHideFlags: 0

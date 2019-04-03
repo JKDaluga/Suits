@@ -13,13 +13,11 @@ public class PinScript : MonoBehaviour
 
 
         AudioLibrary.AlertSound();
-        // Move this object's parent object to
-        // where the raycast hit the Spatial Mapping mesh.
         
 
         // Rotate this object's parent object to face the user.
         Quaternion toQuat = Quaternion.LookRotation(Camera.main.transform.forward);
 
-        this.transform.parent.rotation = toQuat;
+        this.transform.rotation = toQuat;
     }
 }
