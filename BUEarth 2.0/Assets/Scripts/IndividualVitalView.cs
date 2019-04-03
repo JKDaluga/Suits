@@ -30,11 +30,12 @@ public class IndividualVitalView : MonoBehaviour
     {
         Destroy(CurrentBlock); //Removes the current block, if any
         PinTime = 10f; //Resets the pin time
-        CurrentBlock = Instantiate(VitalsBlock, new Vector3(1, 1, 10), new Quaternion(0, 0, 0, 0), GameObject.Find("VitalsCanvas").transform); //Spawns a new vitals block in the correct location
+        CurrentBlock = Instantiate(VitalsBlock, new Vector3(-2.5f, 3.5f, 10), new Quaternion(0, 0, 0, 0), GameObject.Find("VitalsCanvas").transform); //Spawns a new vitals block in the correct location
+        CurrentBlock.transform.localScale *= 2;
         CurrentBlock.tag = "IndividualPanel"; //Tags the block so it can be removed
         VitalsSlot CurrentSlot = CurrentBlock.GetComponent<VitalsSlot>();
         //Sets the data of the block to be accurate
-        CurrentSlot.fillamount = DataController.data.data[0].cap_battery;
+        CurrentSlot.fillamount = DataController.data.data[0].cap_battery / 30f;
         CurrentSlot.value.text = DataController.data.data[0].cap_battery.ToString();
         CurrentSlot.title.text = "Battery";
         CurrentSlot.subTitle.text = "Time Remaining";
@@ -65,6 +66,7 @@ public class IndividualVitalView : MonoBehaviour
         if (CurrentBlock != null) //Makes sure there is a panel spawned to pin
         {
             PinnedBlocks.Add(CurrentBlock); //Adds the panel to the pinned list
+            CurrentBlock.transform.SetParent(GameObject.Find("Canvas").transform);
             CurrentBlock = null; //Resets the current panel
         }
     }
