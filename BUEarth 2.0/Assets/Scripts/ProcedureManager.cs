@@ -26,6 +26,8 @@ public class ProcedureManager : MonoBehaviour {
     public Text Procedure2Title;
     public Text Procedure1Steps;
     public Text Procedure2Steps;
+    public GameObject NextProcedureText;
+    public GameObject PrevProcedureText;
     public Image onboardingScreen;
     public AnimationManager onboardScreen;
     public AnimationManager FadeInProcedures;
@@ -43,6 +45,24 @@ public class ProcedureManager : MonoBehaviour {
 
     public void LoadProcedures()
     {
+        if(procedureIndex == 0)
+        {
+            PrevProcedureText.SetActive(false);
+        }
+        else
+        {
+            PrevProcedureText.SetActive(true);
+        }
+        if(procedureIndex + 1 >= DataController.pdata.procedures.Length)
+        {
+            NextProcedureText.SetActive(false);
+        }
+        else
+        {
+            NextProcedureText.SetActive(true);
+        }
+
+
         onboardScreen.PlayAnimationFadeOut(onboardingScreen);
         Procedure1Title.text = DataController.pdata.procedures[procedureIndex].name;
         Procedure1Steps.text = "" + DataController.pdata.procedures[procedureIndex].steps + " Steps";
