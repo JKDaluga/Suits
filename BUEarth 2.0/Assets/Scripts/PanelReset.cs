@@ -17,12 +17,12 @@ public class PanelReset : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         dimPanel.SetActive(false);
-        vitalsPanel.SetActive(false);
+        vitalsPanel.SetActive(true);
         onboardingPanel.SetActive(true);
 	    criticalAlertPanel.SetActive(true);
         allAlertsPanel.SetActive(false);
         stepPanel.SetActive(false);
-       // proceduceScreen.SetActive(true);
+        proceduceScreen.SetActive(false);
         text.SetActive(false);
 	}
 	

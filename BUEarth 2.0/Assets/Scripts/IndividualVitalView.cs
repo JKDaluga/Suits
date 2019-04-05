@@ -24,13 +24,25 @@ public class IndividualVitalView : MonoBehaviour
         {
             PinIndividualPanel();
         }
+
+        //Debugging for the standard vitals panel
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.BroadcastMessage("Menu");
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            this.BroadcastMessage("CloseVitals");
+        }
     }
 
     public void SpawnBatteryBlock()
     {
+        AudioLibrary.OpenMenuSFX();
         Destroy(CurrentBlock); //Removes the current block, if any
         PinTime = 10f; //Resets the pin time
-        CurrentBlock = Instantiate(VitalsBlock, new Vector3(-2.5f, 3.5f, 10), new Quaternion(0, 0, 0, 0), GameObject.Find("VitalsCanvas").transform); //Spawns a new vitals block in the correct location
+        CurrentBlock = Instantiate(VitalsBlock, new Vector3(-2.5f, 1.5f, 10), new Quaternion(0, 0, 0, 0), GameObject.Find("VitalsCanvas").transform); //Spawns a new vitals block in the correct location
         CurrentBlock.transform.localScale *= 2;
         CurrentBlock.tag = "IndividualPanel"; //Tags the block so it can be removed
         VitalsSlot CurrentSlot = CurrentBlock.GetComponent<VitalsSlot>();
