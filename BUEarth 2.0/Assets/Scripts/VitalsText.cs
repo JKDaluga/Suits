@@ -54,7 +54,8 @@ public class VitalsText : MonoBehaviour {
         else if(tempFillAmount < 0) tempFillAmount = 0;
         float tempPriority = tempFillAmount;
         AddToList("Battery", "Time Remaining", "" + DataController.data.data[0].t_battery, tempFillAmount, tempPriority, true);
-        VitalsToCall.Add("Battery Time Remaining", DataController.data.data[0].t_battery);
+        if(VitalsToCall.ContainsKey("Battery Time Remaining"))
+            VitalsToCall.Add("Battery Time Remaining", DataController.data.data[0].t_battery);
 
         //Example Gauge Meter
         float o2p = DataController.data.data[0].p_o2;
@@ -65,7 +66,8 @@ public class VitalsText : MonoBehaviour {
         if (tempFillAmount > .9) tempFillAmount = .9f;
         else if (tempFillAmount < .1f) tempFillAmount = .1f;
         AddToList("Oxygen", "Current Pressure", DataController.data.data[0].p_o2.ToString() + " psia", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("Oxygen Pressure", DataController.data.data[0].p_o2.ToString());
+        if (VitalsToCall.ContainsKey("Oxygen Pressure"))
+            VitalsToCall.Add("Oxygen Pressure", DataController.data.data[0].p_o2.ToString());
 
         string[] timeArray2 = DataController.data.data[0].t_water.Split(':');
         seconds = float.Parse(timeArray2[0]) * 3600f + float.Parse(timeArray2[1]) * 60f + float.Parse(timeArray2 [2]);
@@ -74,7 +76,8 @@ public class VitalsText : MonoBehaviour {
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
         AddToList("H2O", "Time Remaining", DataController.data.data[0].t_water, tempFillAmount, tempPriority, true);
-        VitalsToCall.Add("H2O Time Remaining", DataController.data.data[0].t_water);
+        if (VitalsToCall.ContainsKey("H2O Time Remaining"))
+            VitalsToCall.Add("H2O Time Remaining", DataController.data.data[0].t_water);
 
         float fanSpeed = DataController.data.data[0].v_fan;
         fanSpeed -=25000;
@@ -82,7 +85,8 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(fanSpeed);
         tempFillAmount = fanSpeed / 2 + 0.5f;
         AddToList("Fan", "Current RPM", DataController.data.data[0].v_fan.ToString() + " RPM", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("Fan RPM", DataController.data.data[0].v_fan.ToString());
+        if (VitalsToCall.ContainsKey("Fan RPM"))
+            VitalsToCall.Add("Fan RPM", DataController.data.data[0].v_fan.ToString());
 
         float subp = DataController.data.data[0].p_sub;
         subp -= 3;
@@ -90,7 +94,8 @@ public class VitalsText : MonoBehaviour {
         subp += 0.7f;
         tempFillAmount = subp / 2 + 0.5f;
         AddToList("Sub", "SubPressure", DataController.data.data[0].p_sub.ToString() + " psia", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("Sub Pressure", DataController.data.data[0].t_battery);
+        if (VitalsToCall.ContainsKey("Sub Pressure"))
+            VitalsToCall.Add("Sub Pressure", DataController.data.data[0].p_sub.ToString());
 
         float o2r = DataController.data.data[0].rate_o2;
         o2r -= 0.75f;
@@ -98,7 +103,8 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(o2r);
         tempFillAmount = o2r / 2 + 0.5f;
         AddToList("Oxygen", "Current Rate", DataController.data.data[0].rate_o2.ToString() + " psi/min", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("Oxygen Rate", DataController.data.data[0].rate_o2.ToString());
+        if (VitalsToCall.ContainsKey("Oxygen Rate"))
+            VitalsToCall.Add("Oxygen Rate", DataController.data.data[0].rate_o2.ToString());
 
         float batcap = DataController.data.data[0].cap_battery;
         tempFillAmount = DataController.data.data[0].cap_battery / 30f;
@@ -106,7 +112,8 @@ public class VitalsText : MonoBehaviour {
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
         AddToList("Battery", "Capacity", DataController.data.data[0].cap_battery.ToString() + " amp-hr", tempFillAmount, tempPriority, true);
-        VitalsToCall.Add("Battery Capacity", DataController.data.data[0].cap_battery.ToString());
+        if (VitalsToCall.ContainsKey("Battery Capacity"))
+            VitalsToCall.Add("Battery Capacity", DataController.data.data[0].cap_battery.ToString());
 
         float h20pg = DataController.data.data[0].p_h2o_g;
         h20pg -= 15;
@@ -114,15 +121,17 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(h20pg);
         tempFillAmount = h20pg / 2 + 0.5f;
         AddToList("H2O", "Gas Pressure", DataController.data.data[0].p_h2o_g.ToString() + " psia", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("H2O Gas Pressure", DataController.data.data[0].p_h2o_g.ToString());
+        if (VitalsToCall.ContainsKey("H2) Gas Pressure"))
+            VitalsToCall.Add("H2O Gas Pressure", DataController.data.data[0].p_h2o_g.ToString());
 
-        float h20pl = DataController.data.data[0].p_h2o_g;
+        float h20pl = DataController.data.data[0].p_h2o_l;
         h20pl -= 15;
         h20pl /= 1 / 0.7f;
         tempPriority = 1 - Mathf.Abs(h20pl);
         tempFillAmount = h20pl / 2 + 0.5f;
-        AddToList("H2O", "Liquid Pressure", DataController.data.data[0].p_h2o_g.ToString() + " psia", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("H20 Liquid Pressure", DataController.data.data[0].p_h2o_l.ToString());
+        AddToList("H2O", "Liquid Pressure", DataController.data.data[0].p_h2o_l.ToString() + " psia", tempFillAmount, tempPriority, false);
+        if (VitalsToCall.ContainsKey("H2O Liquid Pressure"))
+            VitalsToCall.Add("H2O Liquid Pressure", DataController.data.data[0].p_h2o_l.ToString());
 
         float sopp = DataController.data.data[0].p_sop;
         sopp -= 850;
@@ -130,7 +139,8 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(sopp);
         tempFillAmount = sopp / 2 + 0.5f;
         AddToList("SOP", "Current Pressure", DataController.data.data[0].p_sop.ToString() + " psia", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("SOP Pressure", DataController.data.data[0].p_sop.ToString());
+        if (VitalsToCall.ContainsKey("SOP Pressure"))
+            VitalsToCall.Add("SOP Pressure", DataController.data.data[0].p_sop.ToString());
 
         float sopr = DataController.data.data[0].rate_sop;
         sopr -= .75f;
@@ -138,7 +148,8 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(sopr);
         tempFillAmount = sopr / 2 + 0.5f;
         AddToList("SOP", "Rate", DataController.data.data[0].rate_sop.ToString() + "psi/min", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("SOP Rate", DataController.data.data[0].rate_sop.ToString());
+        if (VitalsToCall.ContainsKey("SOP Rate"))
+            VitalsToCall.Add("SOP Rate", DataController.data.data[0].rate_sop.ToString());
 
         float suitp = DataController.data.data[0].p_suit;
         suitp -= 3;
@@ -146,7 +157,8 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(suitp);
         tempFillAmount = suitp / 2 + 0.5f;
         AddToList("Suit", "Current Pressure", DataController.data.data[0].p_suit.ToString() + " psid", tempFillAmount, tempPriority, false);
-        VitalsToCall.Add("Suit Pressure", DataController.data.data[0].p_suit.ToString());
+        if (VitalsToCall.ContainsKey("Suit Pressure"))
+            VitalsToCall.Add("Suit Pressure", DataController.data.data[0].p_suit.ToString());
 
         string[] timeArray3 = DataController.data.data[0].t_oxygen.Split(':');
         seconds = float.Parse(timeArray3[0]) * 3600 + float.Parse(timeArray3[1]) * 60 + float.Parse(timeArray3[2]);
@@ -155,7 +167,8 @@ public class VitalsText : MonoBehaviour {
         else if (tempFillAmount < 0) tempFillAmount = 0;
         tempPriority = tempFillAmount;
         AddToList("Oxygen", "Time Remaining", DataController.data.data[0].t_oxygen, tempFillAmount, tempPriority, true);
-        VitalsToCall.Add("Oxygen Time Remaining", DataController.data.data[0].t_oxygen);
+        if (VitalsToCall.ContainsKey("Oxygen Time Remaining"))
+            VitalsToCall.Add("Oxygen Time Remaining", DataController.data.data[0].t_oxygen);
 
         /*BatteryCapacity = "" + DataController.data.data[0].cap_battery + " Ah";
         OxygenLife = "" + DataController.data.data[0].t_oxygen;
