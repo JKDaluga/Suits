@@ -8,6 +8,9 @@ public class IndividualVitalView : MonoBehaviour
     public GameObject CurrentBlock = null; //The currently-showing vitals block
     public List<GameObject> PinnedBlocks; //Used for holding pinned blocks
     public float PinTime = 10f; //How long in seconds the blocks should show before dissapearing
+    private bool isPie = false;
+    private float tempFillAmount = 0;
+    private string[] timeArray;
 
 
     public void Update()
@@ -17,12 +20,17 @@ public class IndividualVitalView : MonoBehaviour
         //Debug code for when voice commands don't work very well
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SpawnBatteryBlock();
+            SpawnBlock("cap_battery");
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             PinIndividualPanel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            RemoveFirstPanel();
         }
 
         //Debugging for the standard vitals panel
@@ -37,8 +45,10 @@ public class IndividualVitalView : MonoBehaviour
         }
     }
 
-    public void SpawnBatteryBlock()
+    public void SpawnBlock(string type)
     {
+        Debug.Log("Type: " + type);
+        isPie = false;
         AudioLibrary.OpenMenuSFX();
         Destroy(CurrentBlock); //Removes the current block, if any
         PinTime = 10f; //Resets the pin time
@@ -47,14 +57,181 @@ public class IndividualVitalView : MonoBehaviour
         CurrentBlock.tag = "IndividualPanel"; //Tags the block so it can be removed
         VitalsSlot CurrentSlot = CurrentBlock.GetComponent<VitalsSlot>();
         //Sets the data of the block to be accurate
-        CurrentSlot.fillamount = DataController.data.data[0].cap_battery / 30f;
-        CurrentSlot.value.text = DataController.data.data[0].cap_battery.ToString();
-        CurrentSlot.title.text = "Battery";
-        CurrentSlot.subTitle.text = "Time Remaining";
-        //Turns on the correct visual icon for the block
-        CurrentBlock.transform.GetChild(0).gameObject.SetActive(true);
-        CurrentBlock.transform.GetChild(0).GetComponent<PieMeterController>().SetProgressPercentage(DataController.data.data[0].cap_battery);
-        CurrentBlock.transform.GetChild(1).gameObject.SetActive(false);
+
+        switch (type)
+        {
+            case "cap_battery":
+                tempFillAmount = DataController.data.data[0].cap_battery / 30f;
+                if (tempFillAmount > 1) tempFillAmount = 1;
+                else if (tempFillAmount < 0) tempFillAmount = 0;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].cap_battery.ToString();
+                CurrentSlot.title.text = "Battery";
+                CurrentSlot.subTitle.text = "Capacity";
+                isPie = true;
+                break;
+
+            case "p_suit":
+                float suitp = DataController.data.data[0].p_suit;
+                suitp -= 3;
+                suitp /= 1 / 0.7f;
+                tempFillAmount = suitp / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].p_suit.ToString();
+                CurrentSlot.title.text = "Battery";
+                CurrentSlot.subTitle.text = "Time Remaining";
+                break;
+
+            case "t_battery":
+                timeArray = DataController.data.data[0].t_battery.Split(':');
+                float seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
+                CurrentSlot.fillamount = seconds / 36000;
+                if (tempFillAmount > 1) tempFillAmount = 1;
+                else if (tempFillAmount < 0) tempFillAmount = 0;
+                CurrentSlot.value.text = DataController.data.data[0].t_battery.ToString();
+                CurrentSlot.title.text = "Battery";
+                CurrentSlot.subTitle.text = "Time Remaining";
+                isPie = true;
+                break;
+
+            case "t_oxygen":
+                timeArray = DataController.data.data[0].t_oxygen.Split(':');
+                seconds = float.Parse(timeArray[0]) * 3600 + float.Parse(timeArray[1]) * 60 + float.Parse(timeArray[2]);
+                tempFillAmount = seconds /*float.Parse(DataController.data.data[0].t_water)*/ / 36000f;
+                if (tempFillAmount > 1) tempFillAmount = 1;
+                else if (tempFillAmount < 0) tempFillAmount = 0;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].t_oxygen.ToString();
+                CurrentSlot.title.text = "Battery";
+                CurrentSlot.subTitle.text = "Time Remaining";
+                isPie = true;
+                break;
+
+            case "t_water":
+                timeArray = DataController.data.data[0].t_water.Split(':');
+                seconds = float.Parse(timeArray[0]) * 3600f + float.Parse(timeArray[1]) * 60f + float.Parse(timeArray[2]);
+                tempFillAmount = seconds / 36000f;
+                if (tempFillAmount > 1) tempFillAmount = 1;
+                else if (tempFillAmount < 0) tempFillAmount = 0;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].t_water.ToString();
+                CurrentSlot.title.text = "Water";
+                CurrentSlot.subTitle.text = "Time Remaining";
+                isPie = true;
+                break;
+
+            case "p_sub":
+                float subp = DataController.data.data[0].p_sub;
+                subp -= 2.7f;
+                tempFillAmount = subp / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].p_sub.ToString();
+                CurrentSlot.title.text = "Sub";
+                CurrentSlot.subTitle.text = "SubPressure";
+                break;
+
+            case "t_sub":
+                CurrentSlot.fillamount = DataController.data.data[0].cap_battery / 30f;
+                CurrentSlot.value.text = DataController.data.data[0].cap_battery.ToString();
+                CurrentSlot.title.text = "Battery";
+                CurrentSlot.subTitle.text = "Time Remaining";
+                isPie = true;
+                break;
+
+            case "v_fan":
+                float fanSpeed = DataController.data.data[0].v_fan;
+                fanSpeed -= 25000;
+                fanSpeed /= 15000 / 0.7f;
+                tempFillAmount = fanSpeed / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].v_fan.ToString();
+                CurrentSlot.title.text = "Fan";
+                CurrentSlot.subTitle.text = "Current RPM";
+                break;
+
+            case "p_o2":
+                tempFillAmount = DataController.data.data[0].p_o2 / 2 + 0.5f;
+                if (tempFillAmount > .9) tempFillAmount = .9f;
+                else if (tempFillAmount < .1f) tempFillAmount = .1f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].p_o2.ToString();
+                CurrentSlot.title.text = "Oxygen";
+                CurrentSlot.subTitle.text = "Current Pressure";
+                isPie = true;
+                break;
+
+            case "rate_o2":
+                float o2r = DataController.data.data[0].rate_o2;
+                o2r -= 0.75f;
+                o2r /= 0.25f / 0.7f;
+                tempFillAmount = o2r / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].rate_o2.ToString();
+                CurrentSlot.title.text = "Oxygen";
+                CurrentSlot.subTitle.text = "Rate";
+                break;
+
+            case "p_h2o_g":
+                float h20pg = DataController.data.data[0].p_h2o_g;
+                h20pg -= 15;
+                h20pg /= 1 / 0.7f;
+                tempFillAmount = h20pg / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].p_h2o_g.ToString();
+                CurrentSlot.title.text = "H2O";
+                CurrentSlot.subTitle.text = "Gas Pressure";
+                break;
+
+            case "p_h2o_l":
+                float h20pl = DataController.data.data[0].p_h2o_g;
+                h20pl -= 15;
+                h20pl /= 1 / 0.7f;
+                tempFillAmount = h20pl / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].cap_battery.ToString();
+                CurrentSlot.title.text = "H2O";
+                CurrentSlot.subTitle.text = "Liquid Pressure";
+                break;
+
+            case "p_sop":
+                float sopp = DataController.data.data[0].p_sop;
+                sopp -= 850;
+                sopp /= 100 / 0.7f;
+                tempFillAmount = sopp / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].p_sop.ToString();
+                CurrentSlot.title.text = "SOP";
+                CurrentSlot.subTitle.text = "Current Pressure";
+                break;
+
+            case "rate_sop":
+                float sopr = DataController.data.data[0].rate_sop;
+                sopr -= .75f;
+                sopr /= .25f / 0.7f;
+                tempFillAmount = sopr / 2 + 0.5f;
+                CurrentSlot.fillamount = tempFillAmount;
+                CurrentSlot.value.text = DataController.data.data[0].rate_sop.ToString();
+                CurrentSlot.title.text = "SOP";
+                CurrentSlot.subTitle.text = "Rate";
+                break;
+
+            case "heart_bpm":
+                CurrentSlot.fillamount = DataController.data.data[0].cap_battery / 30f;
+                CurrentSlot.value.text = DataController.data.data[0].cap_battery.ToString();
+                CurrentSlot.title.text = "Battery";
+                CurrentSlot.subTitle.text = "Time Remaining";
+                isPie = true;
+                break;
+
+        }
+
+        if (isPie)
+        {
+            //Turns on the correct visual icon for the block
+            CurrentBlock.transform.GetChild(0).gameObject.SetActive(true);
+            CurrentBlock.transform.GetChild(0).GetComponent<PieMeterController>().SetProgressPercentage(DataController.data.data[0].cap_battery);
+            CurrentBlock.transform.GetChild(1).gameObject.SetActive(false);
+        }
 
     }
 
@@ -110,8 +287,11 @@ public class IndividualVitalView : MonoBehaviour
     //Removes the first panel pinned, reguardless of gaze direction.
     private void RemoveFirstPanel()
     {
-        GameObject[] toRemoveArray = PinnedBlocks.ToArray();
-        PinnedBlocks.RemoveAt(0);
-        Destroy(toRemoveArray[0]);
+        if (PinnedBlocks.Count > 0)
+        {
+            GameObject[] toRemoveArray = PinnedBlocks.ToArray();
+            PinnedBlocks.RemoveAt(0);
+            Destroy(toRemoveArray[0]);
+        }
     }
 }
