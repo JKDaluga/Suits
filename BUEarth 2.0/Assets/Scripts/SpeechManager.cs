@@ -212,7 +212,7 @@ public class SpeechManager : MonoBehaviour
             keywords.Add("View " + entry.Key, () =>
             {
                 print("Called Command: View " + entry.Key);
-                this.BroadcastMessage("SpawnBlock", entry.Key);
+                this.BroadcastMessage("SpawnBlock", entry.Value);
             });
         }
     }
