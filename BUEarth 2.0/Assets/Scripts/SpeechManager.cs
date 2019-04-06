@@ -9,6 +9,7 @@ public class SpeechManager : MonoBehaviour
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
     public GameObject VitalsBlock;
+    
 
     // Use this for initialization.
 	// Voice commands
@@ -205,6 +206,15 @@ public class SpeechManager : MonoBehaviour
         // Register a callback for the KeywordRecognizer and start recognizing!
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         keywordRecognizer.Start();
+
+        foreach (KeyValuePair<string, string> entry in VitalsText.VitalsToCall)
+        {
+            keywords.Add("View " + entry.Key, () =>
+            {
+                print("Called Command: View " + entry.Key);
+                this.BroadcastMessage("SpawnBlock", entry.Key);
+            });
+        }
     }
 
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
