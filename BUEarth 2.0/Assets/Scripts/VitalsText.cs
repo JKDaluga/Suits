@@ -121,7 +121,7 @@ public class VitalsText : MonoBehaviour {
         tempPriority = 1 - Mathf.Abs(h20pg);
         tempFillAmount = h20pg / 2 + 0.5f;
         AddToList("H2O", "Gas Pressure", DataController.data.data[0].p_h2o_g.ToString() + " psia", tempFillAmount, tempPriority, false);
-        if (!VitalsToCall.ContainsKey("H2) Gas Pressure"))
+        if (!VitalsToCall.ContainsKey("H2O Gas Pressure"))
             VitalsToCall.Add("H2O Gas Pressure", "p_h2o_g");
 
         float h20pl = DataController.data.data[0].p_h2o_l;
