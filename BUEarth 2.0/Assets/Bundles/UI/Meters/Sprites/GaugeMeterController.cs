@@ -49,8 +49,6 @@ public class GaugeMeterController : MonoBehaviour
 		progressImage = transform.Find( "Progress" ).GetComponent<Image>();
 		foreFillImage = transform.Find( "ForeFill" ).GetComponent<Image>();
 		foreLineImage = transform.Find( "ForeLine" ).GetComponent<Image>();
-
-        print(progressImage);
 	 // Update needle effect
 	  UpdateNeedleVisuals();
 

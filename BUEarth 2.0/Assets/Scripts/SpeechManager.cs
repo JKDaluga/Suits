@@ -9,12 +9,27 @@ public class SpeechManager : MonoBehaviour
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
     public GameObject VitalsBlock;
-    
+
+    public static Dictionary<string, string> VitalsToCall = new Dictionary<string, string>();
 
     // Use this for initialization.
-	// Voice commands
+    // Voice commands
     void Start()
     {
+        VitalsToCall.Add("Battery Time Remaining", "t_battery");
+        VitalsToCall.Add("Oxygen Pressure", "p_o2");
+        VitalsToCall.Add("H2O Time Remaining", "t_water");
+        VitalsToCall.Add("Fan RPM", "v_fan");
+        VitalsToCall.Add("SOP Pressure", "p_sop");
+        VitalsToCall.Add("Sub Pressure", "p_sub");
+        VitalsToCall.Add("Oxygen Rate", "rate_o2");
+        VitalsToCall.Add("Battery Capacity", "cap_battery");
+        VitalsToCall.Add("H2O Gas Pressure", "p_h2o_g");
+        VitalsToCall.Add("H2O Liquid Pressure", "p_h2o_l");
+        VitalsToCall.Add("SOP Rate", "rate_sop");
+        VitalsToCall.Add("Suit Pressure", "p_suit");
+        VitalsToCall.Add("Oxygen Time Remaining", "t_oxygen");
+
         keywords.Add("View Vitals", () =>
         {
             print("Called Command: View Vitals");
@@ -184,7 +199,7 @@ public class SpeechManager : MonoBehaviour
         });
 
         //Make the current individual vitals panel stay in place
-        keywords.Add("pin bat cap", () =>
+        keywords.Add("Place Individual Panel", () =>
         {
             this.BroadcastMessage("PinIndividualPanel");
         });
@@ -200,21 +215,25 @@ public class SpeechManager : MonoBehaviour
         {
             this.BroadcastMessage("RemoveFirstPanel");
         });
+
+        Debug.Log(VitalsToCall.Count);
+        foreach (KeyValuePair<string, string> entry in VitalsToCall)
+        {
+            Debug.Log(entry.Key);
+            string words = "View " + entry.Key;
+            keywords.Add(words, () =>
+            {
+                Debug.Log("Called Command: View " + entry.Key);
+                this.BroadcastMessage("SpawnBlock", entry.Value);
+            });
+        }
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
 
         // Register a callback for the KeywordRecognizer and start recognizing!
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         keywordRecognizer.Start();
-
-        foreach (KeyValuePair<string, string> entry in VitalsText.VitalsToCall)
-        {
-            keywords.Add("View " + entry.Key, () =>
-            {
-                Debug.Log("Called Command: View " + entry.Key);
-                this.BroadcastMessage("SpawnBlock", entry.Value);
-            });
-        }
+        
     }
 
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)

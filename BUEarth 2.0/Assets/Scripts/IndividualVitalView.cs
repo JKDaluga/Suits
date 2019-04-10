@@ -16,33 +16,6 @@ public class IndividualVitalView : MonoBehaviour
     public void Update()
     {
         tickCoundown(); //Runs the timer down
-
-        //Debug code for when voice commands don't work very well
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SpawnBlock("cap_battery");
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            PinIndividualPanel();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            RemoveFirstPanel();
-        }
-
-        //Debugging for the standard vitals panel
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            this.BroadcastMessage("Menu");
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            this.BroadcastMessage("CloseVitals");
-        }
     }
 
     public void SpawnBlock(string type)
@@ -60,6 +33,8 @@ public class IndividualVitalView : MonoBehaviour
 
         switch (type)
         {
+
+            
             case "cap_battery":
                 tempFillAmount = DataController.data.data[0].cap_battery / 30f;
                 if (tempFillAmount > 1) tempFillAmount = 1;
@@ -229,10 +204,15 @@ public class IndividualVitalView : MonoBehaviour
         {
             //Turns on the correct visual icon for the block
             CurrentBlock.transform.GetChild(0).gameObject.SetActive(true);
-            CurrentBlock.transform.GetChild(0).GetComponent<PieMeterController>().SetProgressPercentage(DataController.data.data[0].cap_battery);
+            CurrentBlock.transform.GetChild(0).GetComponent<PieMeterController>().SetProgressPercentage(tempFillAmount);
             CurrentBlock.transform.GetChild(1).gameObject.SetActive(false);
         }
-
+        else
+        {
+            CurrentBlock.transform.GetChild(1).gameObject.SetActive(true);
+            CurrentBlock.transform.GetChild(1).GetComponent<GaugeMeterController>().SetProgressPercentage(tempFillAmount);
+            CurrentBlock.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     //Runs the timer down
@@ -255,7 +235,7 @@ public class IndividualVitalView : MonoBehaviour
         if (CurrentBlock != null) //Makes sure there is a panel spawned to pin
         {
             PinnedBlocks.Add(CurrentBlock); //Adds the panel to the pinned list
-            CurrentBlock.transform.SetParent(GameObject.Find("Canvas").transform);
+            CurrentBlock.transform.SetParent(GameObject.Find("Menu").transform);
             CurrentBlock = null; //Resets the current panel
         }
     }
