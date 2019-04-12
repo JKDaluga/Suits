@@ -5545,6 +5545,7 @@ MonoBehaviour:
   CurrentBlock: {fileID: 0}
   PinnedBlocks: []
   PinTime: 10
+  helpText: {fileID: 307485368}
 --- !u!1 &831265045
 GameObject:
   m_ObjectHideFlags: 0
@@ -12312,7 +12313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -316, y: 67.14925}
+  m_AnchoredPosition: {x: -232, y: 1}
   m_SizeDelta: {x: 41.19, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802847116
@@ -14213,7 +14214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -266.2, y: 67.14925}
+  m_AnchoredPosition: {x: -182.20001, y: 1}
   m_SizeDelta: {x: 100, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040346153

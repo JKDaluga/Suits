@@ -8,6 +8,7 @@ public class IndividualVitalView : MonoBehaviour
     public GameObject CurrentBlock = null; //The currently-showing vitals block
     public List<GameObject> PinnedBlocks; //Used for holding pinned blocks
     public float PinTime = 10f; //How long in seconds the blocks should show before dissapearing
+    public GameObject helpText;
     private bool isPie = false;
     private float tempFillAmount = 0;
     private string[] timeArray;
@@ -25,7 +26,7 @@ public class IndividualVitalView : MonoBehaviour
         AudioLibrary.OpenMenuSFX();
         Destroy(CurrentBlock); //Removes the current block, if any
         PinTime = 10f; //Resets the pin time
-        GameObject.Find("IndividualHelp").SetActive(true);
+        helpText.SetActive(true);
         CurrentBlock = Instantiate(VitalsBlock, (Camera.main.transform.forward * 10) + (-2 * Camera.main.transform.right) + (Camera.main.transform.up), new Quaternion(0, 0, 0, 0), GameObject.Find("VitalsCanvas").transform); //Spawns a new vitals block in the correct location
         CurrentBlock.transform.localScale *= 2;
         CurrentBlock.tag = "IndividualPanel"; //Tags the block so it can be removed
@@ -225,7 +226,7 @@ public class IndividualVitalView : MonoBehaviour
 
             if (PinTime <= 0) //If the time is 0, destory the current block
             {
-                GameObject.Find("IndividualHelp").SetActive(false);
+                helpText.SetActive(false);
                 Destroy(CurrentBlock);
             }
         }
@@ -236,7 +237,7 @@ public class IndividualVitalView : MonoBehaviour
     {
         if (CurrentBlock != null) //Makes sure there is a panel spawned to pin
         {
-            GameObject.Find("IndividualHelp").SetActive(false);
+            helpText.SetActive(false);
             PinnedBlocks.Add(CurrentBlock); //Adds the panel to the pinned list
             CurrentBlock.transform.SetParent(GameObject.Find("Menu").transform);
             CurrentBlock = null; //Resets the current panel
