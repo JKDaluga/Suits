@@ -199,7 +199,7 @@ public class SpeechManager : MonoBehaviour
         });
 
         //Make the current individual vitals panel stay in place
-        keywords.Add("Place Individual Panel", () =>
+        keywords.Add("Place Vitals", () =>
         {
             this.BroadcastMessage("PinIndividualPanel");
         });
