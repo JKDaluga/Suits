@@ -211,7 +211,7 @@ public class SpeechManager : MonoBehaviour
         });
 
         //Remove the first pinned vitals panel
-        keywords.Add("remove first panel", () =>
+        keywords.Add("remove vitals panel", () =>
         {
             this.BroadcastMessage("RemoveFirstPanel");
         });
