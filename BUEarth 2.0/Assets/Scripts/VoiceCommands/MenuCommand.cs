@@ -34,7 +34,7 @@ public class MenuCommand : MonoBehaviour {
         {
 			isOpen = false;
             AudioLibrary.CloseMenuSFX();
-		    NewVitalsAnimation.SlideOut ();
+		    //NewVitalsAnimation.SlideOut ();
             dimpanel.SetActive(false);
         }
     }
