@@ -9,6 +9,8 @@ public class MenuCommand : MonoBehaviour {
     public GameObject dimpanel;
     public bool isOpen;
 
+    public GameObject helpPanel;
+
     // Use this for initialization
     void Start()
     {
@@ -37,5 +39,15 @@ public class MenuCommand : MonoBehaviour {
 		    //NewVitalsAnimation.SlideOut ();
             dimpanel.SetActive(false);
         }
+    }
+
+    void ToggleCommandsOn()
+    {
+        helpPanel.SetActive(true);
+    }
+
+    void ToggleCommandsOff()
+    {
+        helpPanel.SetActive(false);
     }
 }
