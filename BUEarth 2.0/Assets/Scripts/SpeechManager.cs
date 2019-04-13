@@ -217,6 +217,28 @@ public class SpeechManager : MonoBehaviour
             this.BroadcastMessage("RemoveFirstPanel");
         });
 
+        //Shows the help/command screen
+        keywords.Add("show commands", () =>
+        {
+            this.BroadcastMessage("ToggleCommandsOn");
+        });
+
+        keywords.Add("view commands", () =>
+        {
+            this.BroadcastMessage("ToggleCommandsOn");
+        });
+
+        //Hide the help/command screen
+        keywords.Add("close commands", () =>
+        {
+            this.BroadcastMessage("ToggleCommandsOff");
+        });
+
+        keywords.Add("hide commands", () =>
+        {
+            this.BroadcastMessage("ToggleCommandsOff");
+        });
+
         Debug.Log(VitalsToCall.Count);
         foreach (KeyValuePair<string, string> entry in VitalsToCall)
         {
