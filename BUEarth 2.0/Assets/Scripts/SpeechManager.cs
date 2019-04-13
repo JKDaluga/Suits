@@ -73,6 +73,7 @@ public class SpeechManager : MonoBehaviour
             print("Called Command: Continue");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("LoadProcedures");
+            this.BroadcastMessage("pinProcedure");
         });
 
         keywords.Add("Stop Procedure", () =>
