@@ -25,8 +25,8 @@ public class DataController : MonoBehaviour
     //private string gameDataFileName = "SpaceData.json";
     //private string gameDataStepData = "Procedure1.json";http://api.buearth.space/procedure/1
     private static string url = "http://api.buearth.space/procedure/";
-    private static string vitalsUrl = "http://mercury-program.herokuapp.com/api/suit/recent";
-    private static string switchUrl = "http://mercury-program.herokuapp.com/api/suitswitch/recent";
+    private static string vitalsUrl = " https://soyuz-program.herokuapp.com/api/suit/recent";
+    private static string switchUrl = " https://soyuz-program.herokuapp.com/api/suitswitch/recent";
     //private static string HelpUrl = "https://bradleyinteractive.com/suits-api/objects";
     private static bool isGetData = true;
     private static string proceduresUrl = "http://api.buearth.space/procedures";
@@ -55,9 +55,11 @@ public class DataController : MonoBehaviour
 
     IEnumerator getData(int i)
     {
+        print(url + i);
         using (WWW www = new WWW(url + i))
         {
             yield return www;
+            print(www.text);
             DataController.sdata = JsonUtility.FromJson<DataCollection>("{\"data\":" + www.text + "}");
             print(DataController.sdata);
             stepIterator.gameObject.SetActive(true);
@@ -115,7 +117,6 @@ public class DataController : MonoBehaviour
         {
             yield return www;
             DataController.pdata = JsonUtility.FromJson<ProcedureCollection>("{\"procedures\":" + www.text + "}");
-            Debug.Log(DataController.pdata.procedures.Length);
         }
     }
 
