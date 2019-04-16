@@ -24,6 +24,8 @@ public class ProcedureManager : MonoBehaviour {
     public Image procedureScreen2;
     public Text Procedure1Title;
     public Text Procedure2Title;
+    public Text VoiceCommand1;
+    public Text VoiceCommand2;
     public Text Procedure1Steps;
     public Text Procedure2Steps;
     public GameObject NextProcedureText;
@@ -80,9 +82,10 @@ public class ProcedureManager : MonoBehaviour {
             Procedure2Steps.text = "";
             //Procedure
         }
-       
-       
 
+
+        VoiceCommand1.text = "\"Start Procedure " + (procedureIndex+1) + "\"";
+        VoiceCommand2.text = "\"Start Procedure " + (procedureIndex + 2) + "\"";
         //procedureScreen1.gameObject.SetActive(true);
         //procedureScreen2.gameObject.SetActive(true);
         FadeInProcedures.PlayAnimationFadeIn(procedureScreen1);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5589,6 +5589,8 @@ MonoBehaviour:
   procedureScreen2: {fileID: 3355411}
   Procedure1Title: {fileID: 900926699}
   Procedure2Title: {fileID: 1512043665}
+  VoiceCommand1: {fileID: 1555222228}
+  VoiceCommand2: {fileID: 615023035}
   Procedure1Steps: {fileID: 714692289}
   Procedure2Steps: {fileID: 1708809293}
   NextProcedureText: {fileID: 1091017981}
@@ -8967,7 +8969,6 @@ MonoBehaviour:
   - {fileID: 1661739086}
   - {fileID: 1614441466}
   - {fileID: 1044558044}
-  priorityList: []
   tempText: 
   BatteryLife: 
   BatteryCapacity: 
