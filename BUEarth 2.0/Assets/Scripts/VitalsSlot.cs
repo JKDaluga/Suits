@@ -12,7 +12,7 @@ public class VitalsSlot : MonoBehaviour {
         public PieMeterController pie;
         public GaugeMeterController gauge;
         public float fillamount;
-        public float priority;
+        public int order;
         public bool isPie;
 
 }
