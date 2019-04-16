@@ -32,18 +32,21 @@ public class SpeechManager : MonoBehaviour
 
         keywords.Add("View Vitals", () =>
         {
+            print("Called Command: View Vitals");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("Menu");
         });
 
          keywords.Add("Show Vitals", () =>
         {
+            print("Called Command: Show Vitals");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("Menu");
         });
 
         keywords.Add("Hide Vitals", () =>
         {
+            print("Called Command: Hide Vitals");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("CloseVitals");
         });
@@ -60,12 +63,14 @@ public class SpeechManager : MonoBehaviour
 
          keywords.Add("Close Vitals", () =>
         {
+            print("Called Command: Close the Vitals");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("CloseVitals");
         });
 
         keywords.Add("Continue", () =>
         {
+            print("Called Command: Continue");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("LoadProcedures");
             this.BroadcastMessage("pinProcedure");
@@ -110,21 +115,21 @@ public class SpeechManager : MonoBehaviour
         });
         keywords.Add("Start Procedure Three", () =>
         {
-            int i = 4;
+            int i = 0;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
         });
 
         keywords.Add("Start Procedure Four", () =>
         {
-            int i = 5;
+            int i = 4;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
         });
 
         keywords.Add("Start Procedure Five", () =>
         {
-            int i = 1;
+            int i = 5;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
         });
@@ -138,22 +143,28 @@ public class SpeechManager : MonoBehaviour
 
         keywords.Add("Next Procedures", () =>
         {
+            print("Called Command: Next Procedures");
+
             this.BroadcastMessage("NextProcedures");
         });
 
         keywords.Add("Previous Procedures", () =>
         {
+            print("Called Command: Previous Procedures");
+
             this.BroadcastMessage("PreviousProcedures");
         });
 
         keywords.Add("Hide Instructions", () =>
 			{
+				print("hiding the display");
 				// Call the Menu method on every descendant object.
 				this.BroadcastMessage("HideInstructions");
 			});
 
 		keywords.Add("Show Instructions", () =>
 			{
+				print("Show the display");
 				// Call the Menu method on every descendant object.
 				this.BroadcastMessage("ShowInstructions");
 			});
@@ -190,6 +201,7 @@ public class SpeechManager : MonoBehaviour
 
         keywords.Add("build catapult", () =>
         {
+            print("Called Command:  Build");
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", 1);
         });
@@ -199,7 +211,7 @@ public class SpeechManager : MonoBehaviour
         {
             print("Called Command: view bat cap");
             this.BroadcastMessage("SpawnBatteryBlock");
-        }); 
+        });
 
         //Make the current individual vitals panel stay in place
         keywords.Add("Place Vitals", () =>
@@ -244,6 +256,7 @@ public class SpeechManager : MonoBehaviour
         Debug.Log(VitalsToCall.Count);
         foreach (KeyValuePair<string, string> entry in VitalsToCall)
         {
+            Debug.Log(entry.Key);
             string words = "View " + entry.Key;
             keywords.Add(words, () =>
             {
