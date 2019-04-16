@@ -120,6 +120,20 @@ public class SpeechManager : MonoBehaviour
             this.BroadcastMessage("StartProcedure", i);
         });
 
+        keywords.Add("Start Procedure Four", () =>
+        {
+            int i = 4;
+            // Call the Menu method on every descendant object.
+            this.BroadcastMessage("StartProcedure", i);
+        });
+
+        keywords.Add("Start Procedure Five", () =>
+        {
+            int i = 5;
+            // Call the Menu method on every descendant object.
+            this.BroadcastMessage("StartProcedure", i);
+        });
+
         keywords.Add("Choose Procedure", () =>
         {
             print("Called Command: Choose Procedure");

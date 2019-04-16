@@ -69,7 +69,6 @@ public class ProcedureManager : MonoBehaviour {
         if (procedureIndex + 1 < DataController.pdata.procedures.Length)
         {
             procedure2Screen.SetActive(true);
-            //Debug.Log("Butts debug");
             Procedure2Title.text = DataController.pdata.procedures[procedureIndex + 1].name;
             Procedure2Steps.text = "" + DataController.pdata.procedures[procedureIndex + 1].steps + " Steps";
             FadeInProcedures.PlayAnimationFadeIn(procedureScreen2);

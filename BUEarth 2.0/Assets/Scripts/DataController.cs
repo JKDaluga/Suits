@@ -115,6 +115,7 @@ public class DataController : MonoBehaviour
         {
             yield return www;
             DataController.pdata = JsonUtility.FromJson<ProcedureCollection>("{\"procedures\":" + www.text + "}");
+            Debug.Log(DataController.pdata.procedures.Length);
         }
     }
 
