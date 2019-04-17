@@ -75,6 +75,28 @@ public class SpeechManager : MonoBehaviour
         {
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("stopProcedure");
+            this.BroadcastMessage("LoadProcedures");
+        });
+
+        keywords.Add("Close Procedure", () =>
+        {
+            // Call the Menu method on every descendant object.
+            this.BroadcastMessage("stopProcedure");
+            this.BroadcastMessage("LoadProcedures");
+        });
+
+        keywords.Add("Choose Procedure", () =>
+        {
+            // Call the Menu method on every descendant object.
+            this.BroadcastMessage("stopProcedure");
+            this.BroadcastMessage("LoadProcedures");
+        });
+
+        keywords.Add("End Procedure", () =>
+        {
+            // Call the Menu method on every descendant object.
+            this.BroadcastMessage("stopProcedure");
+            this.BroadcastMessage("LoadProcedures");
         });
 
         keywords.Add("Next Step", () =>
@@ -127,13 +149,6 @@ public class SpeechManager : MonoBehaviour
             int i = 1;
             // Call the Menu method on every descendant object.
             this.BroadcastMessage("StartProcedure", i);
-        });
-
-        keywords.Add("Choose Procedure", () =>
-        {
-            print("Called Command: Choose Procedure");
-            // Call the Menu method on every descendant object.
-            this.BroadcastMessage("LoadProcedures");
         });
 
         keywords.Add("Next Procedures", () =>
