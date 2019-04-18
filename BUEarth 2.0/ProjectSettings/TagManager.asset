@@ -10,6 +10,9 @@ TagManager:
   - AudioManager
   - WhatIsPicture
   - IndividualPanel
+  - IndividVital1
+  - IndividVital2
+  - IndividVital3
   layers:
   - Default
   - TransparentFX

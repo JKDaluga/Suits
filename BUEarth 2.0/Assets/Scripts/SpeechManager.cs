@@ -16,19 +16,13 @@ public class SpeechManager : MonoBehaviour
     // Voice commands
     void Start()
     {
-        VitalsToCall.Add("Battery Time Remaining", "t_battery");
-        VitalsToCall.Add("Oxygen Pressure", "p_o2");
-        VitalsToCall.Add("H2O Time Remaining", "t_water");
-        VitalsToCall.Add("Fan RPM", "v_fan");
-        VitalsToCall.Add("SOP Pressure", "p_sop");
-        VitalsToCall.Add("Sub Pressure", "p_sub");
-        VitalsToCall.Add("Oxygen Rate", "rate_o2");
-        VitalsToCall.Add("Battery Capacity", "cap_battery");
-        VitalsToCall.Add("H2O Gas Pressure", "p_h2o_g");
-        VitalsToCall.Add("H2O Liquid Pressure", "p_h2o_l");
-        VitalsToCall.Add("SOP Rate", "rate_sop");
-        VitalsToCall.Add("Suit Pressure", "p_suit");
-        VitalsToCall.Add("Oxygen Time Remaining", "t_oxygen");
+        VitalsToCall.Add("Oxygen", "Oxygen");
+        VitalsToCall.Add("Battery", "Battery");
+        VitalsToCall.Add("H2O", "H2O");
+        VitalsToCall.Add("Fan", "Fan");
+        VitalsToCall.Add("SOP", "SOP");
+        VitalsToCall.Add("Sub", "Sub");
+        VitalsToCall.Add("Suit", "Suit");
 
         keywords.Add("View Vitals", () =>
         {
@@ -241,6 +235,11 @@ public class SpeechManager : MonoBehaviour
         });
 
         keywords.Add("view commands", () =>
+        {
+            this.BroadcastMessage("ToggleCommandsOn");
+        });
+
+        keywords.Add("help me", () =>
         {
             this.BroadcastMessage("ToggleCommandsOn");
         });
