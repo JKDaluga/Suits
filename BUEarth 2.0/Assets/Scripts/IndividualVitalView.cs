@@ -272,6 +272,7 @@ public class IndividualVitalView : MonoBehaviour
 
         }
 
+        /*
         if (isPie)
         {
             //Turns on the correct visual icon for the block
@@ -285,6 +286,7 @@ public class IndividualVitalView : MonoBehaviour
             CurrentBlock.transform.GetChild(1).GetComponent<GaugeMeterController>().SetProgressPercentage(tempFillAmount);
             CurrentBlock.transform.GetChild(0).gameObject.SetActive(false);
         }
+        */
     }
 
     //Runs the timer down

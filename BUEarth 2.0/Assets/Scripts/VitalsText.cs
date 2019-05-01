@@ -29,7 +29,7 @@ public class VitalsText : MonoBehaviour {
 
     public void UpdateText()
     {
-        Debug.Log(vitalsSlots.Length + "vialsslsls");
+        //Debug.Log(vitalsSlots.Length + "vialsslsls");
         tempText = "" + DataController.data.data[0].t_sub;
         //EVA.text = "" + DataController.data.data[0].extraVehicularActivityTime;
         EVA = "";

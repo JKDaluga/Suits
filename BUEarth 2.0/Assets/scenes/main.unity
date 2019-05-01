@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -839,6 +839,18 @@ Prefab:
       propertyPath: m_TagString
       value: IndividVital3
       objectReference: {fileID: 0}
+    - target: {fileID: 1568142083831098, guid: aec494d3e21da174da0bee288178c4fc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122809414935238, guid: aec494d3e21da174da0bee288178c4fc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679610687821394, guid: aec494d3e21da174da0bee288178c4fc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aec494d3e21da174da0bee288178c4fc, type: 2}
   m_IsPrefabParent: 0
@@ -1171,12 +1183,12 @@ GameObject:
   m_Component:
   - component: {fileID: 307485369}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: PlaceVital
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &307485369
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2330,6 +2342,10 @@ Prefab:
       propertyPath: m_TagString
       value: IndividVital1
       objectReference: {fileID: 0}
+    - target: {fileID: 1919789043812802, guid: 8c44b5ef5ecdc7142824c4add0e46396, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c44b5ef5ecdc7142824c4add0e46396, type: 2}
   m_IsPrefabParent: 0
@@ -2604,6 +2620,10 @@ Prefab:
       propertyPath: m_TagString
       value: IndividVital1
       objectReference: {fileID: 0}
+    - target: {fileID: 1174307808710730, guid: 1726432fe9c07e94cb71fed4497a94d6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1726432fe9c07e94cb71fed4497a94d6, type: 2}
   m_IsPrefabParent: 0
@@ -2869,6 +2889,14 @@ Prefab:
       propertyPath: m_TagString
       value: IndividVital2
       objectReference: {fileID: 0}
+    - target: {fileID: 1537501975305936, guid: 5ef7f954270b20a4ca603abb838ffbcf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1572040554804818, guid: 5ef7f954270b20a4ca603abb838ffbcf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ef7f954270b20a4ca603abb838ffbcf, type: 2}
   m_IsPrefabParent: 0
@@ -3060,6 +3088,18 @@ Prefab:
       propertyPath: m_TagString
       value: IndividVital3
       objectReference: {fileID: 0}
+    - target: {fileID: 1410801110300770, guid: ea5ccdd788e03d54686f9de2386d59e1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723055578947756, guid: ea5ccdd788e03d54686f9de2386d59e1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521425693249674, guid: ea5ccdd788e03d54686f9de2386d59e1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea5ccdd788e03d54686f9de2386d59e1, type: 2}
   m_IsPrefabParent: 0
@@ -3203,7 +3243,7 @@ MonoBehaviour:
   CurrentBlock: {fileID: 0}
   PinnedBlocks: []
   PinTime: 10
-  helpText: {fileID: 0}
+  helpText: {fileID: 307485368}
 --- !u!1 &831265045
 GameObject:
   m_ObjectHideFlags: 0
@@ -7345,6 +7385,10 @@ Prefab:
       propertyPath: m_TagString
       value: IndividVital1
       objectReference: {fileID: 0}
+    - target: {fileID: 1876063042370898, guid: e373449a3a5da304888122000a8e075b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e373449a3a5da304888122000a8e075b, type: 2}
   m_IsPrefabParent: 0
@@ -7452,6 +7496,14 @@ Prefab:
     - target: {fileID: 1700596874109840, guid: fea230fbde398fc4ba96c3a351ec7bb7, type: 2}
       propertyPath: m_TagString
       value: IndividVital2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187003049895236, guid: fea230fbde398fc4ba96c3a351ec7bb7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744683297431032, guid: fea230fbde398fc4ba96c3a351ec7bb7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fea230fbde398fc4ba96c3a351ec7bb7, type: 2}
