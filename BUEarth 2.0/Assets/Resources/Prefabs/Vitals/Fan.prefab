@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114777726946439406}
   - component: {fileID: 114334585571824734}
   m_Layer: 8
-  m_Name: VitalsDataBlock (10)
+  m_Name: fan_VitalsDataBlock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
