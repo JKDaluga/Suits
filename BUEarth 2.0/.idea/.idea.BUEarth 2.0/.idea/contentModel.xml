@@ -55,38 +55,43 @@
         </e>
       </e>
       <e p="Assets\Scripts" t="Include">
-        <e p="Alert.cs" t="Include" />
-        <e p="AnimationFadeInOut.cs" t="Include" />
-        <e p="AnimationManager.cs" t="Include" />
-        <e p="AudioLibrary.cs" t="Include" />
-        <e p="AudioManager.cs" t="Include" />
-        <e p="DataController.cs" t="Include" />
-        <e p="DismissOnSelect.cs" t="Include" />
-        <e p="Explaination.cs" t="Include" />
-        <e p="HelpScreen.cs" t="Include" />
-        <e p="IndividualVitalView.cs" t="Include" />
-        <e p="Interactible.cs" t="Include" />
-        <e p="InteractibleAction.cs" t="Include" />
-        <e p="InteractibleManager.cs" t="Include" />
-        <e p="Onclick.cs" t="Include" />
+        <e p="AlertsVitals" t="Include">
+          <e p="Alert.cs" t="Include" />
+          <e p="DataController.cs" t="Include" />
+          <e p="IndividualVitalView.cs" t="Include" />
+          <e p="SpaceData.cs" t="Include" />
+          <e p="VitalsSlot.cs" t="Include" />
+          <e p="VitalsText.cs" t="Include" />
+        </e>
+        <e p="Gestures" t="Include">
+          <e p="Onclick.cs" t="Include" />
+        </e>
         <e p="PanelReset.cs" t="Include" />
-        <e p="PinScript.cs" t="Include" />
-        <e p="ProcedureManager.cs" t="Include" />
-        <e p="SingletonScript.cs" t="Include" />
-        <e p="SpaceData.cs" t="Include" />
-        <e p="SpatialMapping.cs" t="Include" />
-        <e p="SpeechManager.cs" t="Include" />
-        <e p="StepData.cs" t="Include" />
-        <e p="StepIterator.cs" t="Include" />
-        <e p="StepsData.cs" t="Include" />
-        <e p="VitalsSlot.cs" t="Include" />
-        <e p="VitalsText.cs" t="Include" />
+        <e p="Procedures" t="Include">
+          <e p="PinScript.cs" t="Include" />
+          <e p="ProcedureManager.cs" t="Include" />
+          <e p="StepIterator.cs" t="Include" />
+        </e>
+        <e p="Useless" t="Include">
+          <e p="AnimationFadeInOut.cs" t="Include" />
+          <e p="AnimationManager.cs" t="Include" />
+          <e p="AudioLibrary.cs" t="Include" />
+          <e p="AudioManager.cs" t="Include" />
+          <e p="DismissOnSelect.cs" t="Include" />
+          <e p="Explaination.cs" t="Include" />
+          <e p="Interactible.cs" t="Include" />
+          <e p="InteractibleAction.cs" t="Include" />
+          <e p="InteractibleManager.cs" t="Include" />
+          <e p="SingletonScript.cs" t="Include" />
+          <e p="SpatialMapping.cs" t="Include" />
+        </e>
         <e p="VoiceCommands" t="Include">
           <e p="CloseCommand.cs" t="Include" />
           <e p="ContinueCommand.cs" t="Include" />
           <e p="CriticalCommand.cs" t="Include" />
           <e p="InstructionsCommand.cs" t="Include" />
           <e p="MenuCommand.cs" t="Include" />
+          <e p="SpeechManager.cs" t="Include" />
           <e p="TextChanger.cs" t="Include" />
           <e p="VoiceCommands.cs" t="Include" />
         </e>
