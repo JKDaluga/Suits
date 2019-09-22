@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\swift\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\swift\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_BUEarth 2.0.2016915268.00" t="ExcludeRecursive" />
+    <e p="C:\Users\swift\Documents\Bradley 2018-2019\NASA\Suits\BUEarth 2.0" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets\Bundles" t="Include">
+        <e p="UI" t="Include">
+          <e p="Meters" t="Include">
+            <e p="Sprites" t="Include">
+              <e p="GaugeMeterController.cs" t="Include" />
+              <e p="PieMeterController.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Assets\HoloToolkit-Gaze-210" t="Include">
+        <e p="Input" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="CursorManager.cs" t="Include" />
+            <e p="GazeManager.cs" t="Include" />
+            <e p="GazeStabilizer.cs" t="Include" />
+            <e p="GestureManager.cs" t="Include" />
+          </e>
+        </e>
+        <e p="NewBehaviourScript.cs" t="Include" />
+        <e p="Utilities" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Billboard.cs" t="Include" />
+            <e p="DirectionIndicator.cs" t="Include" />
+            <e p="Interpolator.cs" t="Include" />
+            <e p="SimpleTagalong.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="LambertianConfigurable.cginc" t="Include" />
+            <e p="LambertianConfigurable.shader" t="Include" />
+            <e p="LambertianConfigurableTransparent.shader" t="Include" />
+            <e p="StandardFast.shader" t="Include" />
+            <e p="UnlitConfigurable.cginc" t="Include" />
+            <e p="UnlitConfigurable.shader" t="Include" />
+            <e p="UnlitConfigurableTransparent.shader" t="Include" />
+            <e p="VertexLitConfigurable.cginc" t="Include" />
+            <e p="VertexLitConfigurable.shader" t="Include" />
+            <e p="VertexLitConfigurableTransparent.shader" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Assets\Resources" t="Include">
+        <e p="Shaders" t="Include">
+          <e p="SpecularHighlight.shader" t="Include" />
+          <e p="StandardFastBackFaceCulling.shader" t="Include" />
+          <e p="UITransparent.shader" t="Include" />
+        </e>
+      </e>
+      <e p="Assets\Scripts" t="Include">
+        <e p="Alert.cs" t="Include" />
+        <e p="AnimationFadeInOut.cs" t="Include" />
+        <e p="AnimationManager.cs" t="Include" />
+        <e p="AudioLibrary.cs" t="Include" />
+        <e p="AudioManager.cs" t="Include" />
+        <e p="DataController.cs" t="Include" />
+        <e p="DismissOnSelect.cs" t="Include" />
+        <e p="Explaination.cs" t="Include" />
+        <e p="HelpScreen.cs" t="Include" />
+        <e p="IndividualVitalView.cs" t="Include" />
+        <e p="Interactible.cs" t="Include" />
+        <e p="InteractibleAction.cs" t="Include" />
+        <e p="InteractibleManager.cs" t="Include" />
+        <e p="Onclick.cs" t="Include" />
+        <e p="PanelReset.cs" t="Include" />
+        <e p="PinScript.cs" t="Include" />
+        <e p="ProcedureManager.cs" t="Include" />
+        <e p="SingletonScript.cs" t="Include" />
+        <e p="SpaceData.cs" t="Include" />
+        <e p="SpatialMapping.cs" t="Include" />
+        <e p="SpeechManager.cs" t="Include" />
+        <e p="StepData.cs" t="Include" />
+        <e p="StepIterator.cs" t="Include" />
+        <e p="StepsData.cs" t="Include" />
+        <e p="VitalsSlot.cs" t="Include" />
+        <e p="VitalsText.cs" t="Include" />
+        <e p="VoiceCommands" t="Include">
+          <e p="CloseCommand.cs" t="Include" />
+          <e p="ContinueCommand.cs" t="Include" />
+          <e p="CriticalCommand.cs" t="Include" />
+          <e p="InstructionsCommand.cs" t="Include" />
+          <e p="MenuCommand.cs" t="Include" />
+          <e p="TextChanger.cs" t="Include" />
+          <e p="VoiceCommands.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Assets\TextToSpeech.cs" t="Include" />
+      <e p="BUEarth 2.0.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
