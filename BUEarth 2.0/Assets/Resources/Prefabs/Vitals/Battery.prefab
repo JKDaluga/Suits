@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 114627587477130028}
   - component: {fileID: 114689551642159256}
   m_Layer: 8
-  m_Name: bat_VitalsDataBlock1
+  m_Name: battery_VitalsDataBlock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 114776510151251324}
   - component: {fileID: 114923007114920888}
   m_Layer: 8
-  m_Name: bat_VitalsDataBlock2
+  m_Name: battery_VitalsDataBlock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

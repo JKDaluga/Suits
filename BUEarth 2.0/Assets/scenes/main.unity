@@ -3375,7 +3375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 410, y: -234}
+  m_AnchoredPosition: {x: 911, y: -110}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &312302739
@@ -8628,13 +8628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84d36d4e71e2fd4ab52536dc57694f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Oxygen: {fileID: 1728117639255702, guid: ea5ccdd788e03d54686f9de2386d59e1, type: 2}
-  H2O: {fileID: 1637759068164168, guid: aec494d3e21da174da0bee288178c4fc, type: 2}
-  Battery: {fileID: 1704936957179676, guid: fea230fbde398fc4ba96c3a351ec7bb7, type: 2}
-  Suit: {fileID: 1332123396012546, guid: 8c44b5ef5ecdc7142824c4add0e46396, type: 2}
-  Sub: {fileID: 1729044199726154, guid: e373449a3a5da304888122000a8e075b, type: 2}
-  SOP: {fileID: 1474656830087568, guid: 5ef7f954270b20a4ca603abb838ffbcf, type: 2}
-  Fan: {fileID: 0}
   CurrentBlock: {fileID: 0}
   PinnedBlocks: []
   PinTime: 10

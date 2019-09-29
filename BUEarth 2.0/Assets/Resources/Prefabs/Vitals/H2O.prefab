@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 114067797761958316}
   - component: {fileID: 114150485289950062}
   m_Layer: 8
-  m_Name: h20_VitalsDataBlock1
+  m_Name: h2o_VitalsDataBlock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 114206114316691958}
   - component: {fileID: 114328314967821840}
   m_Layer: 8
-  m_Name: h20_VitalsDataBlock2
+  m_Name: h2o_VitalsDataBlock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 114669531444786652}
   - component: {fileID: 114035457845214642}
   m_Layer: 8
-  m_Name: h20_VitalsDataBlock3
+  m_Name: h2o_VitalsDataBlock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
