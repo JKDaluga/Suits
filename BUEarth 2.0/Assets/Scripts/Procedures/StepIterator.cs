@@ -26,29 +26,29 @@ public class StepIterator : MonoBehaviour {
 
     public void loadStep(int i)
     {
-        string path = DataController.sdata.data[i].image;
+        string path = DataController.data.data[i].image;
         image.sprite = Resources.Load<Sprite>(path);
         if(path == "")
         {
-            InstructWithoutImage.text = DataController.sdata.data[i].instruction;
+            InstructWithoutImage.text = DataController.data.data[i].instruction;
             InstructWithoutImage.gameObject.SetActive(true);
             image.gameObject.SetActive(false);
             InstructWithImage.gameObject.SetActive(false);
         }
         else
         {
-            InstructWithImage.text = DataController.sdata.data[i].instruction;
+            InstructWithImage.text = DataController.data.data[i].instruction;
             InstructWithoutImage.gameObject.SetActive(false);
             image.gameObject.SetActive(true);
             InstructWithImage.gameObject.SetActive(true);
         }
         
-        tip.text = DataController.sdata.data[i].tip;
-        stepcounter.text = i+1 + "/" + DataController.sdata.data.Length;
-        var msg = string.Format(DataController.sdata.data[i].instruction + " " + DataController.sdata.data[i].tip, textToSpeech.Voice.ToString());
+        tip.text = DataController.data.data[i].tip;
+        stepcounter.text = i+1 + "/" + DataController.data.data.Length;
+        var msg = string.Format(DataController.data.data[i].instruction + " " + DataController.data.data[i].tip, textToSpeech.Voice.ToString());
         textToSpeech.StartSpeaking(msg);
 
-        if (count + 1 == DataController.sdata.data.Length)
+        if (count + 1 == DataController.data.data.Length)
         {
             nextStep.SetActive(false);
             SayExitText.SetActive(true);
@@ -62,7 +62,7 @@ public class StepIterator : MonoBehaviour {
         if (count == 0) prevStep.SetActive(false);
         else prevStep.SetActive(true);
 
-        if (DataController.sdata.data[i].tip.Equals(""))
+        if (DataController.data.data[i].tip.Equals(""))
             tpanel.SetActive(false);
         else
             tpanel.SetActive(true);
@@ -70,11 +70,11 @@ public class StepIterator : MonoBehaviour {
 
     public void next()
     {
-        if (count + 1 < DataController.sdata.data.Length)
+        if (count + 1 < DataController.data.data.Length)
         {
 			//stepInstructionsAnimations.SlideOutInstructions ();
             loadStep(++count);
-			if (count + 1 == DataController.sdata.data.Length) {
+			if (count + 1 == DataController.data.data.Length) {
 				AudioLibrary.Tada ();
 			} else {
 				AudioLibrary.CompletionStepSFX();
@@ -101,7 +101,7 @@ public class StepIterator : MonoBehaviour {
 
     public void repeat()
     {
-        var msg = string.Format(DataController.sdata.data[count].instruction + " " + DataController.sdata.data[count].tip, textToSpeech.Voice.ToString());
+        var msg = string.Format(DataController.data.data[count].instruction + " " + DataController.data.data[count].tip, textToSpeech.Voice.ToString());
         textToSpeech.StartSpeaking(msg);
     }
 }

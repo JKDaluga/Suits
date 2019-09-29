@@ -15,39 +15,39 @@ public class DataCollection
 
 public class DataController : MonoBehaviour
 {
-    public VitalsText vitalsText;
-    public GameObject AlertPanel;
-    public Text AlertNum;
+    // Data
     public static DataCollection data;
-    public static DataCollection sdata;
     public static ProcedureCollection pdata;
+
     public StepIterator stepIterator;
-    //private string gameDataFileName = "SpaceData.json";
-    //private string gameDataStepData = "Procedure1.json";http://api.buearth.space/procedure/1
+
+    //URLs
     private static string url = "http://api.buearth.space/procedure/";
     private static string vitalsUrl = " https://soyuz-program.herokuapp.com/api/suit/recent";
     private static string switchUrl = " https://soyuz-program.herokuapp.com/api/suitswitch/recent";
-    //private static string HelpUrl = "https://bradleyinteractive.com/suits-api/objects";
-    private static bool isGetData = true;
     private static string proceduresUrl = "http://api.buearth.space/procedures";
+
+    // New Data 
+    private static bool shouldUpdateData = true;
+    private bool containsNewAlert = false;
+
+    // Alert panel UI elements
     public string alertMessege;
     public GameObject CriticalAlertPanel;
     public Text alertText;
+    public VitalsText vitalsText;
+    public GameObject AlertPanel;
+    public Text AlertNum;
+
+    // Current error log
     private bool[] savedAlerts = new bool[7];
     private List<string> alertList = new List<string>();
     public Alert[] alertTexts;
-    private bool isNewAlert = false;
-    private SpeechManager speechManager;
 
-    private int currentProcedureOne;
-    private int currentProcedureTwo;
 
     // Use this for initialization
     void Start()
     {
-        //DataController.data = JsonUtility.FromJson<DataCollection>(LoadData(gameDataFileName));
-        //StartCoroutine(getData());
-        //speechManager = GameObject.FindWithTag("Screens").GetComponent<SpeechManager>();
         StartCoroutine(getVitalsData());
         StartCoroutine(getProcedureData());
         StartCoroutine(getSwitchData());
@@ -55,13 +55,10 @@ public class DataController : MonoBehaviour
 
     IEnumerator getData(int i)
     {
-        print(url + i);
         using (WWW www = new WWW(url + i))
         {
             yield return www;
-            print(www.text);
-            DataController.sdata = JsonUtility.FromJson<DataCollection>("{\"data\":" + www.text + "}");
-            print(DataController.sdata);
+            DataController.data = JsonUtility.FromJson<DataCollection>("{\"data\":" + www.text + "}");
             stepIterator.gameObject.SetActive(true);
             stepIterator.reset();
         }
@@ -69,7 +66,7 @@ public class DataController : MonoBehaviour
 
     IEnumerator getSwitchData()
     {
-        while (isGetData)
+        while (shouldUpdateData)
         {
             using (WWW alerts = new WWW(switchUrl))
             {
@@ -78,7 +75,7 @@ public class DataController : MonoBehaviour
                 int alertNum = checkAlert();
                 if (alertNum > 0)
                 {
-                    if (isNewAlert)
+                    if (containsNewAlert)
                     {
                         alertText.text = alertMessege;
                         CriticalAlertPanel.SetActive(true);
@@ -154,14 +151,14 @@ public class DataController : MonoBehaviour
 
     public int checkAlert()
     {
-        isNewAlert = false;
+        containsNewAlert = false;
         int numAlerts = 0;
         if (DataController.data.switchData[0].sop_on)
         {
             numAlerts++;
             if (!savedAlerts[0])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[0] = true;
                 alertMessege = "Secondary Oxygen Pack is Active";
                 alertList.Add(alertMessege);
@@ -177,7 +174,7 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[1])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[1] = true;
                 alertMessege = "Spacesuit Pressure Emergency";
                 alertList.Add(alertMessege);
@@ -193,7 +190,7 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[2])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[2] = true;
                 alertMessege = "Cooling Fan Failure";
                 alertList.Add(alertMessege);
@@ -209,7 +206,7 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[3])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[3] = true;
                 alertMessege = "No Ventilation Flow is Detected";
                 alertList.Add(alertMessege);
@@ -225,7 +222,7 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[4])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[4] = true;
                 alertMessege = "Spacesuit is Receiving Power through Spacecraft";
                 alertList.Add(alertMessege);
@@ -241,7 +238,7 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[5])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[5] = true;
                 alertMessege = "H20 System is Offline";
                 alertList.Add(alertMessege);
@@ -257,7 +254,7 @@ public class DataController : MonoBehaviour
             numAlerts++;
             if (!savedAlerts[6])
             {
-                isNewAlert = true;
+                containsNewAlert = true;
                 savedAlerts[6] = true;
                 alertMessege = "O2 System is Offline";
                 alertList.Add(alertMessege);
