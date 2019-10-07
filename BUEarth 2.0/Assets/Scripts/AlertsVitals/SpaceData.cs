@@ -4,10 +4,6 @@ using System.Collections;
 [System.Serializable]
 public class SpaceData
 {
-    public string instruction;
-    public string tip;
-    public string image;
-
     public float p_suit;
     public string t_battery;
     public string t_oxygen;
@@ -15,7 +11,6 @@ public class SpaceData
     public float p_sub;
     public float t_sub;
     public float v_fan;
-    //public string extraVehicularActivityTime;
     public float p_o2;
     public float rate_o2;
     public float cap_battery;
@@ -36,6 +31,14 @@ public class SwitchData
     public bool vehicle_power;
     public bool h2o_off;
     public bool o2_off;
+}
+
+[System.Serializable]
+public class StepData
+{
+    public string instruction;
+    public string tip;
+    public string image;
 }
 
 [System.Serializable]

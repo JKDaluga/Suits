@@ -200,7 +200,7 @@ public class SpeechManager : MonoBehaviour
         keywords.Add("build catapult", () =>
         {
             // Call the Menu method on every descendant object.
-            this.BroadcastMessage("StartProcedure", 1);
+            this.BroadcastMessage("StartProcedure", 5);
         });
 
         //view battery capacity time

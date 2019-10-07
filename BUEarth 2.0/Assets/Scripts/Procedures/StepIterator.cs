@@ -21,34 +21,33 @@ public class StepIterator : MonoBehaviour {
     {
         stepInstructionsAnimations = GameObject.FindWithTag("Manager").GetComponent<AnimationManager>();
         textToSpeech = GameObject.FindWithTag("AudioManager").GetComponent<HoloToolkit.Unity.TextToSpeech>();
-        print(textToSpeech);
     }
 
     public void loadStep(int i)
     {
-        string path = DataController.data.data[i].image;
+        string path = DataController.steps.stepData[i].image;
         image.sprite = Resources.Load<Sprite>(path);
         if(path == "")
         {
-            InstructWithoutImage.text = DataController.data.data[i].instruction;
+            InstructWithoutImage.text = DataController.steps.stepData[i].instruction;
             InstructWithoutImage.gameObject.SetActive(true);
             image.gameObject.SetActive(false);
             InstructWithImage.gameObject.SetActive(false);
         }
         else
         {
-            InstructWithImage.text = DataController.data.data[i].instruction;
+            InstructWithImage.text = DataController.steps.stepData[i].instruction;
             InstructWithoutImage.gameObject.SetActive(false);
             image.gameObject.SetActive(true);
             InstructWithImage.gameObject.SetActive(true);
         }
         
-        tip.text = DataController.data.data[i].tip;
-        stepcounter.text = i+1 + "/" + DataController.data.data.Length;
-        var msg = string.Format(DataController.data.data[i].instruction + " " + DataController.data.data[i].tip, textToSpeech.Voice.ToString());
+        tip.text = DataController.steps.stepData[i].tip;
+        stepcounter.text = i+1 + "/" + DataController.steps.stepData.Length;
+        var msg = string.Format(DataController.steps.stepData[i].instruction + " " + DataController.steps.stepData[i].tip, textToSpeech.Voice.ToString());
         textToSpeech.StartSpeaking(msg);
 
-        if (count + 1 == DataController.data.data.Length)
+        if (count + 1 == DataController.steps.stepData.Length)
         {
             nextStep.SetActive(false);
             SayExitText.SetActive(true);
@@ -62,7 +61,7 @@ public class StepIterator : MonoBehaviour {
         if (count == 0) prevStep.SetActive(false);
         else prevStep.SetActive(true);
 
-        if (DataController.data.data[i].tip.Equals(""))
+        if (DataController.steps.stepData[i].tip.Equals(""))
             tpanel.SetActive(false);
         else
             tpanel.SetActive(true);
@@ -70,11 +69,11 @@ public class StepIterator : MonoBehaviour {
 
     public void next()
     {
-        if (count + 1 < DataController.data.data.Length)
+        if (count + 1 < DataController.steps.stepData.Length)
         {
 			//stepInstructionsAnimations.SlideOutInstructions ();
             loadStep(++count);
-			if (count + 1 == DataController.data.data.Length) {
+			if (count + 1 == DataController.steps.stepData.Length) {
 				AudioLibrary.Tada ();
 			} else {
 				AudioLibrary.CompletionStepSFX();
@@ -101,7 +100,7 @@ public class StepIterator : MonoBehaviour {
 
     public void repeat()
     {
-        var msg = string.Format(DataController.data.data[count].instruction + " " + DataController.data.data[count].tip, textToSpeech.Voice.ToString());
+        var msg = string.Format(DataController.steps.stepData[count].instruction + " " + DataController.steps.stepData[count].tip, textToSpeech.Voice.ToString());
         textToSpeech.StartSpeaking(msg);
     }
 }

@@ -13,10 +13,16 @@ public class DataCollection
     public HelpData[] helpData;
 }
 
+public class StepCollection
+{
+    public StepData[] stepData;
+}
+
 public class DataController : MonoBehaviour
 {
     // Data
     public static DataCollection data;
+    public static StepCollection steps;
     public static ProcedureCollection pdata;
 
     public StepIterator stepIterator;
@@ -58,7 +64,7 @@ public class DataController : MonoBehaviour
         using (WWW www = new WWW(url + i))
         {
             yield return www;
-            DataController.data = JsonUtility.FromJson<DataCollection>("{\"data\":" + www.text + "}");
+            DataController.steps = JsonUtility.FromJson<StepCollection>("{\"stepData\":" + www.text + "}");
             stepIterator.gameObject.SetActive(true);
             stepIterator.reset();
         }
